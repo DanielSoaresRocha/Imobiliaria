@@ -6,3 +6,7 @@
     list-style:none;
     border: 0;
 }
+
+:root {
+  --main-color:#C11F1F;
+}
