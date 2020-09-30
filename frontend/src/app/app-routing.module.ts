@@ -9,7 +9,11 @@ export const routes: Routes = [
     },
     {
         path: "welcome",
-        loadChildren: () => import("./modules/welcome/welcome.module").then(m => m.WelcomeModule)
+        loadChildren: () => import("./modules/welcome").then(m => m.WelcomeModule)
+    },
+    {
+        path: "advertisement",
+        loadChildren: () => import("./modules/advertisement").then(m => m.AdvertisementModule)
     }
 ];
 
