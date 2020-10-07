@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 
 import { WelcomeModule } from './modules/welcome'
+import { AdvertisementModule } from './modules/advertisement'
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { WelcomeModule } from './modules/welcome'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    WelcomeModule
+    WelcomeModule,
+    AdvertisementModule
   ],
   providers: [],
   bootstrap: [AppComponent]

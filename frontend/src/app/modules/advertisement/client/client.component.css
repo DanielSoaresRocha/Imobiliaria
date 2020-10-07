@@ -1,0 +1,116 @@
+.containerClient {
+  width: 100%;
+  padding: 2rem;
+}
+
+.containerClient main {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  padding: 30px;
+}
+
+.containerClient section:nth-child(1) {
+  width: 30%;
+  height: 34.2rem;
+  background-color: #e5e5e5;
+  box-shadow: 7px 6px 20px 7px rgba(229, 229, 229, 0.59);
+}
+
+.containerClient main .line {
+  display: flex;
+  flex-direction: column;
+  width: 5%;
+  height: 32rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.containerClient main .line span:nth-child(1),
+.containerClient main .line span:nth-child(3) {
+  display: block;
+  width: 3px;
+  height: 14.3rem;
+  padding: 1px;
+  background-color: var(--main-color);
+  border-radius: 8px;
+}
+
+.containerClient main .line span:nth-child(2) {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: white;
+  margin: 0px 1.4rem 0 1.4rem;
+}
+
+.containerClient section:nth-child(3) {
+  width: 65%;
+  background-color: #e5e5e5;
+  box-shadow: 7px 6px 20px 7px rgba(229, 229, 229, 0.59);
+  padding: 1.25rem;
+}
+
+.containerClient section .fieldset {
+  display: flex;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  background-color: white;
+  margin-bottom: 0.8rem;
+}
+
+.containerClient section .fieldset > img {
+  width: 16.3rem;
+  height: 11.8rem;
+}
+
+.containerClient section .fieldset .content {
+  padding: 10px;
+  width: 100%;
+  position: relative;
+}
+
+.containerClient section .fieldset .content legend span {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.7rem;
+  width: 100%;
+}
+
+.containerClient .cards {
+  display: flex;
+}
+
+.containerClient .cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #ffffff;
+  box-shadow: 3px 5px 5px 3px rgba(193, 31, 31, 0.25);
+  border-radius: 8px;
+  padding: 0.6rem;
+  margin-right: 0.9rem;
+  margin-top: 40px;
+  min-width: 100px;
+}
+
+.containerClient .cards .card strong {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+.containerClient section .fieldset .content .price {
+  position: absolute;
+  bottom: 0.6rem;
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.25rem;
+  line-height: 2.4rem;
+  color: #1f703f;
+}

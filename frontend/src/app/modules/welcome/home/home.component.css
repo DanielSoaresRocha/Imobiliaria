@@ -79,7 +79,7 @@
     background-color: var(--main-color);
     border-radius: 8px;
     animation: 5s lines normal;
-    animation-delay: 2s;
+    animation-delay: 1s;
     animation-fill-mode:forwards;
 }
 
@@ -99,7 +99,7 @@
     background: white;
     margin: 0px 1.4rem 0 1.4rem;
     animation: 0.5s circle normal;
-    animation-delay: 7s;
+    animation-delay: 6s;
     animation-fill-mode: forwards;
 }
 
@@ -113,7 +113,7 @@
     }
 }
 
-.containerWelcome .content button{
+.containerWelcome .content a{
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
     background-color: var(--main-color);
@@ -127,6 +127,6 @@
     transition: 0.5s;
 }
 
-.containerWelcome .content button:hover{
+.containerWelcome .content a:hover{
     transform: translateY(-0.2rem);
 }
