@@ -1,23 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module'
+import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component'
+import { AppComponent } from './app.component';
 
-import { WelcomeModule } from './modules/welcome'
-import { AdvertisementModule } from './modules/advertisement'
+import { WelcomeModule } from './modules/welcome';
+import { AdvertisementModule } from './modules/advertisement';
+import { SharedModule } from './shared';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     WelcomeModule,
-    AdvertisementModule
+    AdvertisementModule,
+    SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
