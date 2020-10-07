@@ -25,5 +25,19 @@ public class Residencia  extends Produto {
     private Integer qtdBanheiros;
     private Integer qtdVagasNaGaragem;
 
-
+    public Residencia(Integer id, String nome, Double valor, String descricao, String logradouro, String bairro,
+                      String cep, String numero, String complemento, String cidade, String estado, Double metrosQuadrados, Integer qtdQuartos, Integer qtdBanheiros, Integer qtdVagasNaGaragem) {
+        super(id, nome, valor, descricao);
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.cep = cep;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.metrosQuadrados = metrosQuadrados;
+        this.qtdQuartos = qtdQuartos;
+        this.qtdBanheiros = qtdBanheiros;
+        this.qtdVagasNaGaragem = qtdVagasNaGaragem;
+    }
 }
