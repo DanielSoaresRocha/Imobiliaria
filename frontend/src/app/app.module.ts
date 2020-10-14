@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { WelcomeModule } from './modules/welcome';
 import { AdvertisementModule } from './modules/advertisement';
+import { AdvertiserModule } from './modules/advertiser'
 import { SharedModule } from './shared';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SharedModule } from './shared';
     WelcomeModule,
     AdvertisementModule,
     SharedModule,
+    AdvertiserModule
   ],
   providers: [],
   bootstrap: [AppComponent],
