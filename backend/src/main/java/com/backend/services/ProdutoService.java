@@ -16,4 +16,9 @@ public class ProdutoService {
     public List<Produto> findAll() {
         return repo.findAll();
     }
+
+    public Produto insert(Produto obj) {
+        obj.setId(null);
+        return repo.save(obj);
+    }
 }
