@@ -3,11 +3,11 @@
     <div class="backdrop">
         <header>
             <div class="links">
-            <img src="../../../assets/logo.png" alt="logo" />
+            <img (click)="backToHome()" src="../../../assets/logo.png" alt="logo" />
                 <a href="">Meus anúncios</a>
                 <a href="">Anunciar</a>
             </div>
-            <span>sair</span>
+            <a href="/" id="logout">sair</a>
         </header>
 
         <router-outlet></router-outlet>

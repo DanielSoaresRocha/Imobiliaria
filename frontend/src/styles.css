@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style:none;
-    border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 :root {
-  --main-color:#C11F1F;
+  --main-color: #c11f1f;
 }

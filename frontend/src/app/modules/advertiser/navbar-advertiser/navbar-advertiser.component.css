@@ -15,7 +15,6 @@
   font-size: 20px;
   line-height: 22px;
   color: #0075ff;
-  text-decoration: none;
   margin-left: 25px;
 }
 
@@ -25,7 +24,7 @@
   width: 100%;
 }
 
-.containerNavbar .backdrop header > span {
+#logout {
   font-family: Archivo;
   font-style: normal;
   font-weight: 600;
@@ -34,6 +33,7 @@
   color: #ff0000;
   text-transform: uppercase;
   cursor: pointer;
+  margin-right: 25px;
 }
 
 .containerNavbar .backdrop {
@@ -56,6 +56,7 @@
 .containerNavbar header img {
   width: 11rem;
   height: 3.4rem;
+  cursor: pointer;
 }
 
 .containerNavbar header span {
