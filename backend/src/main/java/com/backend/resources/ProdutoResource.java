@@ -1,5 +1,6 @@
 package com.backend.resources;
 
+import com.backend.domain.Automovel;
 import com.backend.domain.Produto;
 import com.backend.domain.Residencia;
 import com.backend.services.ProdutoService;
@@ -26,6 +27,13 @@ public class ProdutoResource {
     }
     @PostMapping(path = "/residencia")
     public ResponseEntity<Void> insert(@RequestBody Residencia obj) {
+        Produto produto = service.insert(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}").buildAndExpand(produto.getId()).toUri();
+        return ResponseEntity.created(uri).build();
+    }
+    @PostMapping(path = "/automovel")
+    public ResponseEntity<Void> insert(@RequestBody Automovel obj) {
         Produto produto = service.insert(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(produto.getId()).toUri();
