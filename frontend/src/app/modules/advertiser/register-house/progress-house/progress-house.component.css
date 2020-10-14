@@ -1,0 +1,82 @@
+.containerProgress {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+.progress {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.progress .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  position: relative;
+  display: flex;
+}
+
+.progress span {
+  border: 1px solid var(--main-color);
+  min-width: 28%;
+  height: 8px;
+  border-radius: 8px;
+  background-color: var(--main-color);
+}
+
+.circle:before {
+  content: "Sobre o imóvel";
+  top: -29px;
+  right: -75px;
+  position: absolute;
+  display: flex;
+  flex-flow: nowrap;
+  min-width: 149px;
+  color: white;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  text-shadow: #0075ff 2px 0px 0px, #0075ff 1.75517px 0.958851px 0px,
+    #0075ff 1.0806px 1.68294px 0px, #0075ff 0.141474px 1.99499px 0px,
+    #0075ff -0.832294px 1.81859px 0px, #0075ff -1.60229px 1.19694px 0px,
+    #0075ff -1.97998px 0.28224px 0px, #0075ff -1.87291px -0.701566px 0px,
+    #0075ff -1.30729px -1.5136px 0px, #0075ff -0.421592px -1.95506px 0px,
+    #0075ff 0.567324px -1.91785px 0px, #0075ff 1.41734px -1.41108px 0px,
+    #0075ff 1.92034px -0.558831px 0px;
+}
+
+.progress .circle:nth-child(3):before {
+  content: "Plano e preços";
+}
+
+.progress .circle:nth-child(5):before {
+  content: "Insira as fotos";
+}
+
+.progress .circle:nth-child(7):before {
+  content: "Finalizar";
+  right: -95px;
+}
+
+.circle.active {
+  background-color: white !important;
+}
+.circle.active::after {
+  content: "";
+  display: flex;
+  width: 20px;
+  height: 20px;
+  background-color: #0075ff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
