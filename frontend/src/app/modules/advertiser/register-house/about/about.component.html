@@ -1,0 +1,35 @@
+<div class="card">
+    <app-progress-house [stage]="1"></app-progress-house>
+
+    <form>
+        <section>
+            <h3>Localização</h3>
+
+            <div class="fields">
+                <input style="grid-area: cep;" placeholder="CEP" />
+                <input style="grid-area: estado;" placeholder="Estado" />
+                <input style="grid-area: cidade;" placeholder="Cidade" />
+                <input style="grid-area: bairro;" placeholder="Bairro" />
+                <input style="grid-area: rua;" placeholder="Rua" />
+                <input style="grid-area: numero;" placeholder="Número" />
+                <textarea style="grid-area: complemento;" placeholder="Complemento"></textarea>
+            </div>
+        </section>
+        <section>
+            <h3>Sobre o imóvel</h3>
+
+            <div class="fields">
+                <input style="grid-area: metros;" placeholder="Metros quadrados" />
+                <input style="grid-area: quartos;" placeholder="Quartos" />
+                <input style="grid-area: banheiros;" placeholder="Banheiros" />
+                <input style="grid-area: vagas;" placeholder="Vagas na garagem" />
+                <textarea style="grid-area: descricao;" placeholder="Descrição completa"></textarea>
+            </div>
+        </section>
+    </form>
+
+    <div class="group-buttons">
+        <button>Cancelar</button>
+        <button (click)="goToPrice()">Avançar</button>
+    </div>
+</div>
