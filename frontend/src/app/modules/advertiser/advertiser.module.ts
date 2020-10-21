@@ -4,6 +4,10 @@ import { RegisterHouseComponent } from './register-house'
 import { AdvertiserRoutingModule } from './advertiser-routing.module';
 import { NavbarAdvertiserComponent } from './navbar-advertiser';
 import { ProgressHouseComponent } from './register-house/progress-house';
+import { AboutComponent } from './register-house/about/about.component';
+import { PriceComponent } from './register-house/price/price.component';
+import { PhotosComponent } from './register-house/photos/photos.component';
+import { FinishComponent } from './register-house/finish/finish.component';
 
 
 @NgModule({
@@ -11,6 +15,10 @@ import { ProgressHouseComponent } from './register-house/progress-house';
     RegisterHouseComponent,
     NavbarAdvertiserComponent,
     ProgressHouseComponent,
+    AboutComponent,
+    PriceComponent,
+    PhotosComponent,
+    FinishComponent,
   ],
   imports: [
     CommonModule,
