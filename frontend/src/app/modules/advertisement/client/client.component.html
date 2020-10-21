@@ -1,39 +1,110 @@
 <div class="containerClient">
   <main>
-    <section>sdfsadf</section>
-    <div class="line">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="sectionFilter">
+      <section>
+        <div class="filter">
+          <form>
+            <fieldset>
+
+              <label for="location">Localização do Imóvel</label><br/>
+              <div class="input-block">
+                <input type="text" id="location" name="location" placeholder="Estado, Cidade, Rua"/>
+              </div>
+
+              <label for="immobile">Tipo de Imóvel</label><br/>
+              <div class="select-block">
+                <select id="immobile" name="immobile"></select>
+              </div>
+
+              <label for="value-min">Valor do Imóvel</label><br/>
+              <div class="select-block-value">
+                <select id="value-min" name="value-min">
+                  <option>R$ - Min</option>
+                </select>
+                <span>  -  </span>
+                <select id="value-max" name="value-max">
+                  <option>R$ - Max</option>
+                </select>
+              </div>
+
+              <label for="area-min">Área do Imóvel (m²)</label><br/>
+              <div class="select-block-area"> 
+                <select id="area-min" name="area-min">
+                  <option >Min</option>
+                </select>
+                <span> - </span>
+                <select id="area-max" name="area-max">
+                  <option>Max</option>
+                </select>
+              </div>
+
+              <label for="bathroom">Número de quartos</label>
+              <div class="button-block-bath">
+                <button> +1 </button>
+                <button> +2 </button>
+                <button> +3 </button>
+                <button> +4 </button>
+                <button> +5 </button>
+              </div>
+
+              <label for="bathroom">Número de Banheiros</label>
+              <div class="button-block-bath">
+                <button> +1 </button>
+                <button> +2 </button>
+                <button> +3 </button>
+                <button> +4 </button>
+                <button> +5 </button>
+              </div>
+
+              <label for="bathroom">Número de vagas na garagem</label>
+              <div class="button-block-bath">
+                <button> +1 </button>
+                <button> +2 </button>
+                <button> +3 </button>
+                <button> +4 </button>
+                <button> +5 </button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </section>
+      <div class="line">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
+
+
     <section>
-      <div class="fieldset">
+      <div class="fieldset" *ngFor="let house of houses">
         <img src="../../../../assets/casa.png" alt="Casa" />
+
         <div class="content">
           <legend>
-            <span>Casa com 6 quartos a venda</span>
+            <span>{{house.nome}}</span>
           </legend>
-
+        
           <div class="cards">
             <div class="card">
               <img src="../../../../assets/icons/size.png" />
-              <strong>84m²</strong>
+              <strong>{{house.metrosQuadrados}}²</strong>
             </div>
             <div class="card">
               <img src="../../../../assets/icons/bed.png" />
-              <strong>6</strong>
+              <strong>{{house.qtdQuartos}}</strong>
             </div>
             <div class="card">
               <img src="../../../../assets/icons/bathroom.png" />
-              <strong>3</strong>
+              <strong>{{house.qtdBanheiros}}</strong>
             </div>
             <div class="card">
               <img src="../../../../assets/icons/garage.png" />
-              <strong>2</strong>
+              <strong>{{house.qtdVagasNaGaragem}}</strong>
             </div>
           </div>
-
-          <span class="price">R$ 490.000</span>
+        
+          <span class="price">R$ {{house.valor}}</span>
         </div>
       </div>
     </section>
