@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ListAdvertisementService {
-  private readonly BASE_URL = 'http://localhost:8080/produtos';
+  private readonly BASE_URL = 'http://localhost:8080/produtos/residencia';
 
   constructor(private httpClient: HttpClient) {}
 

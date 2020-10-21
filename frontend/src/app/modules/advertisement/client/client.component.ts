@@ -9,13 +9,18 @@ import { ListAdvertisementService } from 'src/app/shared/services';
 export class ClientComponent implements OnInit {
   constructor(private conversorService: ListAdvertisementService) {}
 
+  houses: any;
+
   ngOnInit(): void {
     this.listar();
   }
 
   listar() {
     this.conversorService.list().subscribe(
-      (response) => console.log(response),
+      (response) => {
+        this.houses = response;
+        console.log(response)
+      },
       (error) => console.log(error)
     );
   }
