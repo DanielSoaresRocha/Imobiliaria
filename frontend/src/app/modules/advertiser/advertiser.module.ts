@@ -8,6 +8,8 @@ import { AboutComponent } from './register-house/about/about.component';
 import { PriceComponent } from './register-house/price/price.component';
 import { PhotosComponent } from './register-house/photos/photos.component';
 import { FinishComponent } from './register-house/finish/finish.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { FinishComponent } from './register-house/finish/finish.component';
   ],
   imports: [
     CommonModule,
-    AdvertiserRoutingModule
+    AdvertiserRoutingModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class AdvertiserModule { }
