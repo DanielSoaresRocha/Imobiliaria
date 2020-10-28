@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-about',
@@ -8,7 +8,7 @@ import { Router,ActivatedRoute } from "@angular/router";
 })
 export class AboutComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -17,7 +17,10 @@ export class AboutComponent implements OnInit {
   // https://www.techiediaries.com/angular-router-routerlink-navigate-navigatebyurl/
   goToPrice() {
     this.router.navigate(['/advertiser/register-house/price']);
-    console.log("sdfasd");
+  }
+
+  cancel(){
+    this.router.navigate(['/']);
   }
 
 }

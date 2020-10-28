@@ -1,3 +1,8 @@
 .containerRegisterHouse {
   padding: 1.87rem;
 }
+
+.containerRegisterHouse .card {
+  background-color: #e5e5e5;
+  padding: 1.87rem;
+}

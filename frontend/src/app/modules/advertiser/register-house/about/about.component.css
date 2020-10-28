@@ -1,32 +1,27 @@
-.card {
-  background-color: #e5e5e5;
-  padding: 1.87rem;
-}
-
-.card h1 {
+h1 {
   margin-bottom: 3.12rem;
 }
 
-.card form {
+form {
   display: flex;
 }
 
-.card section {
+section {
   background: #e1d8d8;
   box-shadow: 9px 9px 12px rgba(193, 31, 31, 0.25);
   border-radius: 8px;
   padding: 20px;
 }
 
-.card form section h3 {
+form section h3 {
   margin-bottom: 30px;
 }
 
-.card form section:nth-child(1) {
+form section:nth-child(1) {
   margin-right: 40px;
 }
 
-.card form section:nth-child(1) .fields {
+form section:nth-child(1) .fields {
   display: grid;
   grid-template-areas:
     "cep rua"
@@ -37,8 +32,8 @@
   row-gap: 20px;
 }
 
-.card form section input,
-.card form section textarea {
+form section input,
+form section textarea {
   min-width: 320px;
   min-height: 50px;
   padding: 10px;
@@ -51,7 +46,7 @@
   outline: none;
 }
 
-.card form section:nth-child(2) .fields {
+form section:nth-child(2) .fields {
   display: grid;
   grid-template-areas:
     "metros banheiros"
@@ -61,22 +56,22 @@
   row-gap: 20px;
 }
 
-.card form section:nth-child(2) input {
+form section:nth-child(2) input {
   min-width: 20px;
 }
 
-.card textarea {
+textarea {
   height: 120px;
 }
 
-.card .group-buttons {
+.group-buttons {
   width: 100%;
   margin-top: 20px;
   display: flex;
   justify-content: center;
 }
 
-.card .group-buttons button {
+.group-buttons button {
   width: 120px;
   font-family: Roboto;
   font-style: normal;
@@ -90,14 +85,14 @@
   cursor: pointer;
 }
 
-.card .group-buttons button:nth-child(1) {
+.group-buttons button:nth-child(1) {
   background: #c11f1f;
 }
 
-.card .group-buttons button:nth-child(2) {
+.group-buttons button:nth-child(2) {
   background: #38be3e;
 }
 
-.card .group-buttons button + button {
+.group-buttons button + button {
   margin-left: 20px;
 }

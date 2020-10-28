@@ -1,1 +1,20 @@
-<p style="color: white;">TELA DE PREÇO</p>
+<app-progress-house [stage]="2"></app-progress-house>
+
+
+<form>
+    <section>
+        <h3>Valor do imóvel</h3>
+
+        <div class="type-immobile">
+            <button type="button" class="selected">Venda</button>
+            <button type="button" >Aluguel</button>
+        </div>
+
+        <input placeholder="R$" type="number"/>
+    </section>
+</form>
+
+<div class="group-buttons">
+    <button (click)="back()">Voltar</button>
+    <button (click)="goToPhotos()">Avançar</button>
+</div>

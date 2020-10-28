@@ -12,6 +12,11 @@ a {
   text-decoration: none;
 }
 
+button,
+input {
+  outline: none;
+}
+
 :root {
   --main-color: #c11f1f;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-price',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PriceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToPhotos(){
+    this.router.navigate(['/advertiser/register-house/photos']);
+  }
+  
+  back(){
+    this.router.navigate(['/advertiser/register-house/about']);
   }
 
 }
