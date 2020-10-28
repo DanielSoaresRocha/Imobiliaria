@@ -1,8 +1,13 @@
 .containerRegisterHouse {
   padding: 1.87rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .containerRegisterHouse .card {
   background-color: #e5e5e5;
   padding: 1.87rem;
+  max-width: 1300px;
+  min-width: 1289px;
 }

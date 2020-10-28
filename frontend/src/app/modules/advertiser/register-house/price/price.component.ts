@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./price.component.css']
 })
 export class PriceComponent implements OnInit {
+  checkCondominio = false;
+  checkIPTU = false;
+  isVenda = true;
 
   constructor(private router: Router) { }
 
@@ -19,6 +22,10 @@ export class PriceComponent implements OnInit {
   
   back(){
     this.router.navigate(['/advertiser/register-house/about']);
+  }
+
+  changeIsVenda(venda : boolean){
+    this.isVenda = venda;
   }
 
 }

@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { WelcomeModule } from './modules/welcome';
 import { AdvertisementModule } from './modules/advertisement';
 import { AdvertiserModule } from './modules/advertiser'
-import { SharedModule } from './shared';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     WelcomeModule,
     AdvertisementModule,
-    SharedModule,
     AdvertiserModule,
     BrowserAnimationsModule,
   ],

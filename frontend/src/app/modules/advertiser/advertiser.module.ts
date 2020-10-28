@@ -8,9 +8,7 @@ import { AboutComponent } from './register-house/about/about.component';
 import { PriceComponent } from './register-house/price/price.component';
 import { PhotosComponent } from './register-house/photos/photos.component';
 import { FinishComponent } from './register-house/finish/finish.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
+import { SharedModule } from 'src/app/shared';
 
 @NgModule({
   declarations: [
@@ -25,8 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   imports: [
     CommonModule,
     AdvertiserRoutingModule,
-    MatFormFieldModule,
-    MatInputModule
+    SharedModule
   ]
 })
 export class AdvertiserModule { }
