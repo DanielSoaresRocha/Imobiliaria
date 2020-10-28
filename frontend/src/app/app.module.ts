@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { WelcomeModule } from './modules/welcome';
 import { AdvertisementModule } from './modules/advertisement';
 import { AdvertiserModule } from './modules/advertiser'
-import { SharedModule } from './shared';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,8 +16,8 @@ import { SharedModule } from './shared';
     AppRoutingModule,
     WelcomeModule,
     AdvertisementModule,
-    SharedModule,
-    AdvertiserModule
+    AdvertiserModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

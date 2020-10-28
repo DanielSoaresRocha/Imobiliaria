@@ -1,1 +1,63 @@
-<p style="color: white;">TELA DE PREÇO</p>
+<app-progress-house [stage]="2"></app-progress-house>
+
+
+<form>
+    <section>
+        <h3>Valor do imóvel</h3>
+
+        <div class="type-immobile">
+            <button (click)="changeIsVenda(true)" 
+                type="button" 
+                [ngClass]="{'selected' : isVenda == true}">Venda</button>
+            <button (click)="changeIsVenda(false)"
+                type="button"
+                [ngClass]="{'selected' : isVenda == false}">Aluguel</button>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <mat-form-field appearance="fill">
+                <mat-label>Preço</mat-label>
+                <input matInput type="number" class="example-right-align">
+                <span matPrefix>R$&nbsp;</span>
+                <span matSuffix>.00</span>
+            </mat-form-field>
+        </div>
+
+        <div style="margin-top: 40px; display: flex;">
+            <div style="min-width: 250px;">
+                <div>
+                    <mat-checkbox name="condominio" [(ngModel)]="checkCondominio">Têm condominio</mat-checkbox>
+                </div>
+                
+                <div *ngIf="checkCondominio" style="margin-top: 20px;">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Preço</mat-label>
+                        <input matInput type="number" class="example-right-align">
+                        <span matPrefix>R$&nbsp;</span>
+                        <span matSuffix>.00</span>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div style="min-width: 250px;">
+                <div>
+                    <mat-checkbox name="IPTU" [(ngModel)]="checkIPTU">Têm IPTU</mat-checkbox>
+                </div>
+
+                <div *ngIf="checkIPTU" style="margin-top: 20px;">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Preço</mat-label>
+                        <input matInput type="number" class="example-right-align">
+                        <span matPrefix>R$&nbsp;</span>
+                        <span matSuffix>.00</span>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+            
+    </section>
+</form>
+
+<div class="group-buttons">
+    <button (click)="back()">Voltar</button>
+    <button (click)="goToPhotos()">Avançar</button>
+</div>

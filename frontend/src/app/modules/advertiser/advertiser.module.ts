@@ -8,7 +8,7 @@ import { AboutComponent } from './register-house/about/about.component';
 import { PriceComponent } from './register-house/price/price.component';
 import { PhotosComponent } from './register-house/photos/photos.component';
 import { FinishComponent } from './register-house/finish/finish.component';
-
+import { SharedModule } from 'src/app/shared';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { FinishComponent } from './register-house/finish/finish.component';
   ],
   imports: [
     CommonModule,
-    AdvertiserRoutingModule
+    AdvertiserRoutingModule,
+    SharedModule
   ]
 })
 export class AdvertiserModule { }
