@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListAdvertisementService } from './shared/services';
+import { Error404Component } from './pages/error404/error404.component'
 
 export const routes: Routes = [
   {
@@ -22,6 +22,9 @@ export const routes: Routes = [
     path: 'advertiser',
     loadChildren: () =>
       import('./modules/advertiser').then((m) => m.AdvertiserModule),
+  },
+  {
+    path: '**', component: Error404Component
   },
 ];
 

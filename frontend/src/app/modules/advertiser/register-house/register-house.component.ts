@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-house.component.css']
 })
 export class RegisterHouseComponent implements OnInit {
+  stage = 1;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeStage(respostaFilho) {
+    this.stage = respostaFilho.stage;
   }
 
 }

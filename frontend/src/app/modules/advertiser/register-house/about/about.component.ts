@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from "@angular/router";
 
 @Component({
@@ -7,20 +7,19 @@ import { Router } from "@angular/router";
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  @Output() stageEmit = new EventEmitter();
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  // usando rotas:
-  // https://www.techiediaries.com/angular-router-routerlink-navigate-navigatebyurl/
   goToPrice() {
-    this.router.navigate(['/advertiser/register-house/price']);
+    this.stageEmit.emit({"stage": 2});
   }
 
   cancel(){
     this.router.navigate(['/']);
+    this.stageEmit.emit({"stage": 0});
   }
-
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,18 +10,19 @@ export class PriceComponent implements OnInit {
   checkCondominio = false;
   checkIPTU = false;
   isVenda = true;
-
+  @Output() stageEmit = new EventEmitter();
+  
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   goToPhotos(){
-    this.router.navigate(['/advertiser/register-house/photos']);
+    this.stageEmit.emit({stage: 3});
   }
   
   back(){
-    this.router.navigate(['/advertiser/register-house/about']);
+    this.stageEmit.emit({stage: 1});
   }
 
   changeIsVenda(venda : boolean){

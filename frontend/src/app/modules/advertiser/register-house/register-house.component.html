@@ -1,7 +1,13 @@
 <div class="containerRegisterHouse">
     <div class="card">
+        <app-progress-house [stage]="stage"></app-progress-house>
 
-        <router-outlet></router-outlet>
-    
+        <app-about *ngIf="stage==1" (stageEmit)="changeStage($event)"></app-about>
+        
+        <app-price *ngIf="stage==2" (stageEmit)="changeStage($event)"></app-price>
+
+        <app-photos *ngIf="stage==3" (stageEmit)="changeStage($event)"></app-photos>
+
+        <app-finish *ngIf="stage==4" (stageEmit)="changeStage($event)"></app-finish>
     </div>
 </div>
