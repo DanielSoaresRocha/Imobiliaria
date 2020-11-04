@@ -52,4 +52,9 @@ public class ProdutoResource {
                 .path("/{id}").buildAndExpand(produto.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> findProdutoById(@PathVariable Integer  id ) {
+        Produto obj = service.findProdutoById(id);
+        return ResponseEntity.ok().body(obj);
+    }
 }

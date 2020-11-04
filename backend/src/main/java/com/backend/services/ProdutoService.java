@@ -6,10 +6,12 @@ import com.backend.domain.Residencia;
 import com.backend.repositories.AutomovelRepository;
 import com.backend.repositories.ProdutoRepository;
 import com.backend.repositories.ResidenciaRepository;
+import com.backend.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService {
@@ -32,5 +34,10 @@ public class ProdutoService {
     public Produto insert(Produto obj) {
         obj.setId(null);
         return repo.save(obj);
+    }
+    public Produto findProdutoById(Integer id) {
+        Optional<Produto> obj = repo.findById(id);
+        return obj.orElseThrow(() -> new ObjectNotFoundException(
+                "Objeto não encontrado! Id: " + id + ", Tipo: " + Produto.class.getName()));
     }
 }
