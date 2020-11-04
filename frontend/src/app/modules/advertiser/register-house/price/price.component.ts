@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { House } from 'src/app/shared/models/house.model';
 
 @Component({
   selector: 'app-price',
@@ -11,6 +12,7 @@ export class PriceComponent implements OnInit {
   checkIPTU = false;
   isVenda = true;
   @Output() stageEmit = new EventEmitter();
+  @Input() house: House;
   
   constructor(private router: Router) { }
 

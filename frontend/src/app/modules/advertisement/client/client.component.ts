@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListAdvertisementService } from 'src/app/shared/services';
+import { HouseService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-client',
@@ -7,7 +7,7 @@ import { ListAdvertisementService } from 'src/app/shared/services';
   styleUrls: ['./client.component.css'],
 })
 export class ClientComponent implements OnInit {
-  constructor(private conversorService: ListAdvertisementService) {}
+  constructor(private houseService: HouseService) {}
 
   houses: any;
 
@@ -16,7 +16,7 @@ export class ClientComponent implements OnInit {
   }
 
   listar() {
-    this.conversorService.list().subscribe(
+    this.houseService.list().subscribe(
       (response) => {
         this.houses = response;
         console.log(response)

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class FinishComponent implements OnInit {
   @Output() stageEmit = new EventEmitter();
+  @Output() finishEmit = new EventEmitter();
   
   constructor(private router: Router) { }
 
@@ -16,7 +17,7 @@ export class FinishComponent implements OnInit {
 
   finish(){
     this.stageEmit.emit({stage: 5});
-    this.router.navigate(['/welcome']);
+    this.finishEmit.emit();
   }
   
   back(){

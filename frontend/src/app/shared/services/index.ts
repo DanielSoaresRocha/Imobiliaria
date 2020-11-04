@@ -1,1 +1,1 @@
-export * from './advertisement';
+export * from './advertisement/house';

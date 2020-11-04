@@ -30,17 +30,17 @@
   width: 11rem;
   height: 3.4rem;
   margin-left: 2.5rem;
+  cursor: pointer;
 }
 
-.containerNavbar header span {
-  margin-right: 3.5rem;
-
-  font-family: "Poppins";
+.containerNavbar header a {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: 600;
   font-size: 20px;
-  font-weight: 700;
-  color: rgba(255, 0, 0, 0.425);
-}
-
-.containerNavbar header span:hover {
-  color: rgb(255, 0, 0);
+  line-height: 27px;
+  color: #ff0000;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-right: 25px;
 }
