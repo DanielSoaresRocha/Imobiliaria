@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { House } from 'src/app/shared/models/house.model';
 
 @Component({
   selector: 'app-finish',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class FinishComponent implements OnInit {
   @Output() stageEmit = new EventEmitter();
   @Output() finishEmit = new EventEmitter();
+  @Input() house: House;
   
   constructor(private router: Router) { }
 

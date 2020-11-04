@@ -1,3 +1,95 @@
+<h1>Revise as informações inseridas</h1>
+
+<section>
+    <div class="locale" style="width: 44%;">
+        <h3>Localização</h3>
+        <div class="fields">
+            <div class="field" style="grid-area: cep;">
+                <h5>CEP</h5>
+                <span>{{house.cep}}</span>
+            </div>
+            <div class="field" style="grid-area: estado;">
+                <h5>Estado</h5>
+                <span>{{house.estado}}</span>
+            </div>
+            <div class="field" style="grid-area: cidade;">
+                <h5>Cidade</h5>
+                <span>{{house.cidade}}</span>
+            </div>
+            <div class="field" style="grid-area: complemento;">
+                <h5>Complemento</h5>
+                <span>{{house.complemento}}</span>
+            </div>
+            <div class="field" style="grid-area: bairro;">
+                <h5>Bairro</h5>
+                <span>{{house.bairro}}</span>
+            </div>
+            <div class="field" style="grid-area: rua;">
+                <h5>Rua</h5>
+                <span>{{house.logradouro}}</span>
+            </div>
+            <div class="field" style="grid-area: numero;">
+                <h5>Numero</h5>
+                <span>{{house.numero}}</span>
+            </div>
+        </div>
+    </div>
+
+    <span class="divisor"></span>
+
+    <div class="about" style="width: 26%;">
+        <h3>Sobre o imóvel</h3>
+        <div class="fields">
+            <div class="field">
+                <h5>Area (m²)</h5>
+                <span>{{house.metrosQuadrados}}</span>
+            </div>
+            <div class="field">
+                <h5>Quartos</h5>
+                <span>{{house.qtdQuartos}}</span>
+            </div>
+            <div class="field">
+                <h5>Banheiros</h5>
+                <span>{{house.qtdBanheiros}}</span>
+            </div>
+            <div class="field">
+                <h5>Vagas na garagem</h5>
+                <span>{{house.qtdVagasNaGaragem}}</span>
+            </div>
+        </div>
+    </div>
+
+    <span class="divisor"></span>
+
+    <div class="value" style="width: 26%;">
+        <h3>Valor do imóvel</h3>
+        <div class="fields">
+            <div class="field">
+                <h5>Disponível para</h5>
+                <span>Venda</span>
+            </div>
+            <div class="field">
+                <h5>Valor do imóvel</h5>
+                <span>R$ {{house.valor}}.00</span>
+            </div>
+            <div class="field">
+                <h5>IPTU</h5>
+                <span>R$ -</span>
+            </div>
+            <div class="field">
+                <h5>Condominio</h5>
+                <span>R$ -</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<h1 style="margin-top: 40px;">Preview do anúncio</h1>
+
+<div style="margin-top: 60px; display: flex; justify-content: center;">
+    <app-card-house [house]="house"></app-card-house>
+</div>
+
 <div class="group-buttons">
     <button (click)="back()">voltar</button>
     <button (click)="finish()">Finalizar</button>
