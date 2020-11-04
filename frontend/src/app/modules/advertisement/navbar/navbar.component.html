@@ -2,8 +2,8 @@
   <img src="../../../../assets/navbarbg.png" />
   <div class="backdrop">
     <header>
-      <img src="../../../assets/logo.png" alt="logo" />
-      <span>sair</span>
+      <img (click)="backToHome()" src="../../../assets/logo.png" alt="logo" />
+      <a [routerLink]="['/']">sair</a>
     </header>
 
     <router-outlet></router-outlet>

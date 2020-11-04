@@ -1,29 +1,119 @@
-
-<app-progress-house [stage]="1"></app-progress-house>
-
 <form>
     <section>
         <h3>Localização</h3>
 
         <div class="fields">
-            <input style="grid-area: cep;" placeholder="CEP" />
-            <input style="grid-area: estado;" placeholder="Estado" />
-            <input style="grid-area: cidade;" placeholder="Cidade" />
-            <input style="grid-area: bairro;" placeholder="Bairro" />
-            <input style="grid-area: rua;" placeholder="Rua" />
-            <input style="grid-area: numero;" placeholder="Número" />
-            <textarea style="grid-area: complemento;" placeholder="Complemento"></textarea>
+            <mat-form-field class="example-full-width" style="grid-area: cep">
+                <mat-label>Cep</mat-label>
+                <input 
+                    matInput
+                    #cep
+                    maxlength="9"
+                    [(ngModel)]="house.cep"
+                    placeholder="Ex. 94105-795"
+                    value="94043"
+                    name="cep"
+                    >
+                <mat-hint align="end">{{cep.value.length}} / 9</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-area: estado;">
+                <mat-label>Estado</mat-label>
+                <input 
+                    matInput
+                    placeholder="Ex. Paraná"
+                    [(ngModel)]="house.estado"
+                    name="estado">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-area: cidade;">
+                <mat-label>Cidade</mat-label>
+                <input
+                    matInput placeholder="Ex. Paraná"
+                    [(ngModel)]="house.cidade"
+                    name="cidade">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-area: bairro;">
+                <mat-label>Bairro</mat-label>
+                <input
+                    matInput placeholder="Bairro"
+                    [(ngModel)]="house.bairro"
+                    name="bairro">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-area: rua;">
+                <mat-label>Rua</mat-label>
+                <input matInput
+                    placeholder="Rua"
+                    [(ngModel)]="house.logradouro"
+                    name="rua">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-area: numero;">
+                <mat-label>Número</mat-label>
+                <input matInput
+                    placeholder="Número"
+                    [(ngModel)]="house.numero"
+                    name="numero">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-area: complemento;">
+                <mat-label>Complemento</mat-label>
+                <textarea matInput
+                    placeholder="Complemento"
+                    [(ngModel)]="house.complemento"
+                    name="complemento"></textarea>
+            </mat-form-field>
         </div>
     </section>
     <section>
         <h3>Sobre o imóvel</h3>
 
         <div class="fields">
-            <input style="grid-area: metros;" placeholder="Metros quadrados" />
-            <input style="grid-area: quartos;" placeholder="Quartos" />
-            <input style="grid-area: banheiros;" placeholder="Banheiros" />
-            <input style="grid-area: vagas;" placeholder="Vagas na garagem" />
-            <textarea style="grid-area: descricao;" placeholder="Descrição completa"></textarea>
+            <mat-form-field class="example-full-width" style="grid-area: metros;">
+                <mat-label>Metros quadrados</mat-label>
+                <input matInput
+                    maxlength="4"
+                    placeholder="Metros quadrados"
+                    [(ngModel)]="house.metrosQuadrados"
+                    name="metros quadrados">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-area: quartos;">
+                <mat-label>Quantidade de quartos</mat-label>
+                <input matInput
+                    maxlength="2"
+                    placeholder="Quartos"
+                    [(ngModel)]="house.qtdQuartos"
+                    name="quantidade de quartos">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-area: banheiros;">
+                <mat-label>Quantidade de banheiros</mat-label>
+                <input matInput
+                    maxlength="2"
+                    placeholder="Banheiros"
+                    [(ngModel)]="house.qtdBanheiros"
+                    name="quantidade de banheiros">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-area: vagas;">
+                <mat-label>Quantidade de vagas na garagem</mat-label>
+                <input matInput
+                    maxlength="2"
+                    placeholder="Vagas na garagem"
+                    [(ngModel)]="house.qtdVagasNaGaragem"
+                    name="quantidade de vagas" >
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="grid-area: descricao;">
+                <mat-label>Descrição</mat-label>
+                <textarea matInput
+                    placeholder="Descrição completa"
+                    [(ngModel)]="house.descricao"
+                    name="descrição"></textarea>
+            </mat-form-field>
         </div>
     </section>
 </form>

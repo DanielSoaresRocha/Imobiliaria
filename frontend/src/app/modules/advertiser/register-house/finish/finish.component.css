@@ -1,0 +1,32 @@
+.group-buttons {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.group-buttons button {
+  width: 120px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  padding: 14px 9px 14px 9px;
+  cursor: pointer;
+}
+
+.group-buttons button:nth-child(1) {
+  background: blue;
+}
+
+.group-buttons button:nth-child(2) {
+  background: #38be3e;
+}
+
+.group-buttons button + button {
+  margin-left: 20px;
+}

@@ -14,7 +14,6 @@ export class NavbarAdvertiserComponent implements OnInit {
   }
 
   backToHome(){
-    console.log("hellou")
     this.router.navigate(['/']);
   }
 

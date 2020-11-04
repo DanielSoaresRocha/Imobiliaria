@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-finish',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./finish.component.css']
 })
 export class FinishComponent implements OnInit {
-
-  constructor() { }
+  @Output() stageEmit = new EventEmitter();
+  @Output() finishEmit = new EventEmitter();
+  
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  finish(){
+    this.stageEmit.emit({stage: 5});
+    this.finishEmit.emit();
+  }
+  
+  back(){
+    this.stageEmit.emit({stage: 3});
   }
 
 }
