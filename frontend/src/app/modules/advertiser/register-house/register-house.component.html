@@ -8,6 +8,6 @@
 
         <app-photos *ngIf="stage==3" (stageEmit)="changeStage($event)"></app-photos>
 
-        <app-finish *ngIf="stage==4" (stageEmit)="changeStage($event)" (finishEmit)="finish()"></app-finish>
+        <app-finish [house]="house" *ngIf="stage==4" (stageEmit)="changeStage($event)" (finishEmit)="finish()"></app-finish>
     </div>
 </div>

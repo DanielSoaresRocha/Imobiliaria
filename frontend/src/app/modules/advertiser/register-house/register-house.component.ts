@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { House } from 'src/app/shared/models/house.model';
 import {HouseService} from 'src/app/shared/services'
 
@@ -11,7 +12,7 @@ export class RegisterHouseComponent implements OnInit {
   stage = 1;
   house: House;
 
-  constructor(private houseService: HouseService) { }
+  constructor(private houseService: HouseService, private router: Router) { }
 
   ngOnInit(): void {
     this.house = new House();
@@ -24,7 +25,7 @@ export class RegisterHouseComponent implements OnInit {
 
   finish(){
     this.houseService.create(this.house).subscribe(
-      x => console.log('Deu certo' + x),
+      x => this.router.navigate(['/advertisement/client']),
       err => console.error('Deu errado' + err)
     )
   }

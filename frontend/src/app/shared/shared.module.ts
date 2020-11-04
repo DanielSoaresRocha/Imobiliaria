@@ -9,9 +9,12 @@ import { HouseService } from './services';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CardHouseComponent } from './components';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CardHouseComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -27,7 +30,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    CardHouseComponent
   ]
 })
 export class SharedModule {}
