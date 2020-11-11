@@ -1,0 +1,56 @@
+#notfound {
+  position: relative;
+  height: 100vh;
+  background-color: #e4e4e4;
+}
+#notfound .notfound {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.notfound {
+  max-width: 35rem;
+  width: 100%;
+  padding-left: 160px;
+  line-height: 1.1;
+}
+.notfound img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: inline-block;
+  width: 8.75rem;
+  height: 8.75rem;
+}
+
+.notfound h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 80px;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+}
+.notfound h2 {
+  font-family: "Poppins";
+  font-size: 24px;
+  font-weight: 700;
+}
+.notfound p {
+  font-family: "Poppins";
+  font-size: 21px;
+  font-weight: 100;
+  color: #9c9c9c;
+}
+
+.notfound a {
+  font-family: "Archivo";
+  font-size: 18px;
+  font-weight: 600;
+  color: #0077ff4d;
+}
+.notfound a:hover {
+  transition: 0.2s;
+  color: #0075ff;
+  cursor: pointer;
+}
