@@ -57,4 +57,17 @@ public class ProdutoResource {
         Produto obj = service.findProdutoById(id);
         return ResponseEntity.ok().body(obj);
     }
+
+    @GetMapping(value = "/filter")
+    public ResponseEntity<?> findResidenciaByfilter(@RequestParam(value = "qtd_quartos", required = false) Integer qtd_quartos,
+                                                    @RequestParam(value = "qtdBanheiros", required = false) Integer qtdBanheiros,
+                                                    @RequestParam(value = "qtdVagasNaGaragem", required = false) Integer qtdVagasNaGaragem,
+                                                    @RequestParam(value = "minValor", required = false) Double minValor,
+                                                    @RequestParam(value = "maxValor", required = false) Double maxValor,
+                                                    @RequestParam(value = "minMetrosQuadrados", required = false) Double minMetrosQuadrados,
+                                                    @RequestParam(value = "maxMetrosQuadrados", required = false) Double maxMetrosQuadrados
+                                                        ) {
+        List<Residencia> list = service.findFiltroResidencia(qtd_quartos,qtdBanheiros,qtdVagasNaGaragem,minValor,maxValor, minMetrosQuadrados, maxMetrosQuadrados);
+        return ResponseEntity.ok().body(list);
+    }
 }
