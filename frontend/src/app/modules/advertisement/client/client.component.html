@@ -12,57 +12,109 @@
               </div>
 
               <label for="immobile">Tipo de Imóvel</label><br/>
-              <div class="select-block">
-                <select id="immobile" name="immobile"></select>
-              </div>
+              <ng-select id="immobile" name="immobile">
+                <ng-option [value]="0">Selecione</ng-option>
+                <ng-option [value]="1">Aluguel</ng-option>
+                <ng-option [value]="2">Venda</ng-option>
+              </ng-select>
 
               <label for="value-min">Valor do Imóvel</label><br/>
               <div class="select-block-value">
-                <select id="value-min" name="value-min">
-                  <option>R$ - Min</option>
-                </select>
+                <label style="font-size: 12px;">Min</label>
+                <mat-slider
+                  [displayWith]="changeMinValue"
+                  thumbLabel
+                  tickInterval="50"
+                  min="100"
+                  max="5000">
+                </mat-slider>
                 <span>  -  </span>
-                <select id="value-max" name="value-max">
-                  <option>R$ - Max</option>
-                </select>
+                <label style="font-size: 12px;">Max</label>
+                <mat-slider
+                  [displayWith]="changeMaxValue"
+                  thumbLabel
+                  tickInterval="50"
+                  min="100"
+                  max="5000">
+                </mat-slider>
               </div>
 
               <label for="area-min">Área do Imóvel (m²)</label><br/>
-              <div class="select-block-area"> 
-                <select id="area-min" name="area-min">
-                  <option >Min</option>
-                </select>
-                <span> - </span>
-                <select id="area-max" name="area-max">
-                  <option>Max</option>
-                </select>
+              <div class="select-block-area">
+                <label style="font-size: 12px;">Min</label>
+                <mat-slider
+                  [displayWith]="changeMinMeters"
+                  thumbLabel
+                  tickInterval="5"
+                  min="20"
+                  max="2000">
+                </mat-slider>
+                <span>  -  </span>
+                <label style="font-size: 12px;">Max</label>
+                <mat-slider
+                  [displayWith]="changeMaxMeters"
+                  thumbLabel
+                  tickInterval="5"
+                  min="20"
+                  max="2000">
+                </mat-slider>
               </div>
 
               <label for="bathroom">Número de quartos</label>
               <div class="button-block-bath">
-                <button> +1 </button>
-                <button> +2 </button>
-                <button> +3 </button>
-                <button> +4 </button>
-                <button> +5 </button>
+                <button
+                  [ngClass]="{'selected' : numBedrooms == 1}"
+                  (click)="changeBedroom(1)"> +1 </button>
+                <button
+                  [ngClass]="{'selected' : numBedrooms == 2}"
+                  (click)="changeBedroom(2)"> +2 </button>
+                <button 
+                  [ngClass]="{'selected' : numBedrooms == 3}"
+                  (click)="changeBedroom(3)"> +3 </button>
+                <button
+                  [ngClass]="{'selected' : numBedrooms == 4}"
+                  (click)="changeBedroom(4)"> +4 </button>
+                <button
+                  [ngClass]="{'selected' : numBedrooms == 5}"
+                  (click)="changeBedroom(5)"> +5 </button>
               </div>
 
               <label for="bathroom">Número de Banheiros</label>
               <div class="button-block-bath">
-                <button> +1 </button>
-                <button> +2 </button>
-                <button> +3 </button>
-                <button> +4 </button>
-                <button> +5 </button>
+                <button
+                  [ngClass]="{'selected' : numBathrooms == 1}"
+                  (click)="changeBathroom(1)"> +1 </button>
+                <button
+                  [ngClass]="{'selected' : numBathrooms == 2}"
+                  (click)="changeBathroom(2)"> +2 </button>
+                <button
+                  [ngClass]="{'selected' : numBathrooms == 3}"
+                  (click)="changeBathroom(3)"> +3 </button>
+                <button
+                  [ngClass]="{'selected' : numBathrooms == 4}"
+                  (click)="changeBathroom(4)"> +4 </button>
+                <button
+                  [ngClass]="{'selected' : numBathrooms == 5}"
+                  (click)="changeBathroom(5)"> +5 </button>
               </div>
 
               <label for="bathroom">Número de vagas na garagem</label>
               <div class="button-block-bath">
-                <button> +1 </button>
-                <button> +2 </button>
-                <button> +3 </button>
-                <button> +4 </button>
-                <button> +5 </button>
+                <button
+                  [ngClass]="{'selected' : numGarage == 1}"
+                  (click)="changeGarage(1)"> +1 </button>
+                <button
+                  [ngClass]="{'selected' : numGarage == 2}"
+                  (click)="changeGarage(2)"> +2 </button>
+                <button
+                  [ngClass]="{'selected' : numGarage == 3}"
+                  (click)="changeGarage(3)"> +3 </button>
+                <button
+                  [ngClass]="{'selected' : numGarage == 4}"
+                  (click)="changeGarage(4)"> +4 </button>
+                <button
+                  [ngClass]="{'selected' : numGarage == 5}"
+                  (click)="changeGarage(5)"> +5 </button>
               </div>
             </fieldset>
           </form>
@@ -74,7 +126,6 @@
         <span></span>
       </div>
     </div>
-
 
     <section>
       <div class="fieldset" *ngFor="let house of houses">
