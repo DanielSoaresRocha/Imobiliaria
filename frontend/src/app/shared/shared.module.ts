@@ -5,11 +5,16 @@ import { FormsModule } from '@angular/forms';
 
 import { HouseService } from './services';
 
-
+// Angular Material
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CardHouseComponent } from './components';
+import {MatSliderModule} from '@angular/material/slider';
+
+
+//ngSelect
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,9 @@ import { CardHouseComponent } from './components';
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgSelectModule,
+    MatSliderModule
   ],
   providers: [
     HouseService
@@ -31,7 +38,9 @@ import { CardHouseComponent } from './components';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    CardHouseComponent
+    CardHouseComponent,
+    NgSelectModule,
+    MatSliderModule
   ]
 })
 export class SharedModule {}

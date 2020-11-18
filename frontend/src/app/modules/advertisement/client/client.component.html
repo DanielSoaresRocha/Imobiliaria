@@ -11,58 +11,114 @@
                 <input type="text" id="location" name="location" placeholder="Estado, Cidade, Rua"/>
               </div>
 
-              <label for="immobile">Tipo de Imóvel</label><br/>
-              <div class="select-block">
-                <select id="immobile" name="immobile"></select>
-              </div>
-
               <label for="value-min">Valor do Imóvel</label><br/>
-              <div class="select-block-value">
-                <select id="value-min" name="value-min">
-                  <option>R$ - Min</option>
-                </select>
-                <span>  -  </span>
-                <select id="value-max" name="value-max">
-                  <option>R$ - Max</option>
-                </select>
+              <div class="select-block-value" style="display: flex; justify-content: space-between;">
+                <mat-form-field appearance="fill" style="width: 150px;">
+                  <mat-label>Mínimo</mat-label>
+                  <input 
+                      matInput type="number" 
+                      class="example-right-align"
+                      [(ngModel)]="filter.minValue"
+                      name="Preço mínimo"
+                      (blur)="listFilter()"
+                      >
+                  <span matPrefix>R$&nbsp;</span>
+                </mat-form-field>
+                -
+                <mat-form-field appearance="fill" style="width: 150px;">
+                <mat-label>Máximo</mat-label>
+                  <input 
+                      matInput type="number" 
+                      class="example-right-align"
+                      [(ngModel)]="filter.maxValue"
+                      name="Preço máximo"
+                      (blur)="listFilter()"
+                      >
+                  <span matPrefix>R$&nbsp;</span>
+                </mat-form-field>
               </div>
 
               <label for="area-min">Área do Imóvel (m²)</label><br/>
-              <div class="select-block-area"> 
-                <select id="area-min" name="area-min">
-                  <option >Min</option>
-                </select>
-                <span> - </span>
-                <select id="area-max" name="area-max">
-                  <option>Max</option>
-                </select>
+              <div class="select-block-area" style="display: flex; justify-content: space-between;">
+                <mat-form-field appearance="fill" style="width: 150px;">
+                  <mat-label>Mínimo</mat-label>
+                  <input 
+                      matInput type="number" 
+                      class="example-right-align"
+                      [(ngModel)]="filter.minMeters"
+                      name="Área mínima"
+                      (blur)="listFilter()"
+                      >
+                  <span matPrefix>R$&nbsp;</span>
+                </mat-form-field>
+                -
+                <mat-form-field appearance="fill" style="width: 150px;">
+                <mat-label>Máximo</mat-label>
+                  <input 
+                      matInput type="number" 
+                      class="example-right-align"
+                      [(ngModel)]="filter.maxMeters"
+                      name="Área máxima"
+                      >
+                  <span matPrefix>R$&nbsp;</span>
+                </mat-form-field>
               </div>
 
               <label for="bathroom">Número de quartos</label>
               <div class="button-block-bath">
-                <button> +1 </button>
-                <button> +2 </button>
-                <button> +3 </button>
-                <button> +4 </button>
-                <button> +5 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdBedrooms == 1}"
+                  (click)="changeBedroom(1)"> +1 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdBedrooms == 2}"
+                  (click)="changeBedroom(2)"> +2 </button>
+                <button 
+                  [ngClass]="{'selected' : filter.qtdBedrooms == 3}"
+                  (click)="changeBedroom(3)"> +3 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdBedrooms == 4}"
+                  (click)="changeBedroom(4)"> +4 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdBedrooms == 5}"
+                  (click)="changeBedroom(5)"> +5 </button>
               </div>
 
               <label for="bathroom">Número de Banheiros</label>
               <div class="button-block-bath">
-                <button> +1 </button>
-                <button> +2 </button>
-                <button> +3 </button>
-                <button> +4 </button>
-                <button> +5 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdBathrooms == 1}"
+                  (click)="changeBathroom(1)"> +1 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdBathrooms == 2}"
+                  (click)="changeBathroom(2)"> +2 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdBathrooms == 3}"
+                  (click)="changeBathroom(3)"> +3 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdBathrooms == 4}"
+                  (click)="changeBathroom(4)"> +4 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdBathrooms == 5}"
+                  (click)="changeBathroom(5)"> +5 </button>
               </div>
 
               <label for="bathroom">Número de vagas na garagem</label>
               <div class="button-block-bath">
-                <button> +1 </button>
-                <button> +2 </button>
-                <button> +3 </button>
-                <button> +4 </button>
-                <button> +5 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdGarage == 1}"
+                  (click)="changeGarage(1)"> +1 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdGarage == 2}"
+                  (click)="changeGarage(2)"> +2 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdGarage == 3}"
+                  (click)="changeGarage(3)"> +3 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdGarage == 4}"
+                  (click)="changeGarage(4)"> +4 </button>
+                <button
+                  [ngClass]="{'selected' : filter.qtdGarage == 5}"
+                  (click)="changeGarage(5)"> +5 </button>
               </div>
             </fieldset>
           </form>
@@ -74,7 +130,6 @@
         <span></span>
       </div>
     </div>
-
 
     <section>
       <div class="fieldset" *ngFor="let house of houses">
