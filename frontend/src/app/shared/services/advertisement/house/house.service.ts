@@ -10,7 +10,6 @@ import { HouseFilter } from '../../../models/house-filter.model'
 export class HouseService {
   
   private readonly BASE_URL = 'http://localhost:8080/produtos';
-  private readonly BASE_URL_FILTER = 'http://localhost:8080/produtos/filter';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -25,14 +24,17 @@ export class HouseService {
     filter.maxMeters = filter.maxMeters === null ? 0 : filter.maxMeters;
 
     let params = new HttpParams()
-      .set('qtdBanheiros', filter.qtdBathrooms+'')
       .set('minValor', filter.minValue+'')
       .set('maxValor', filter.maxValue+'')
+      .set('minMetrosQuadrados', filter.minMeters+'')
+      .set('maxMetrosQuadrados', filter.maxMeters+'')
+      .set('qtdBanheiros', filter.qtdBathrooms+'')
+      .set('qtdQuartos', filter.qtdBedrooms+'')
       .set('qtdVagasNaGaragem', filter.qtdGarage+'');
 
     console.log(params.toString());
     
-    return this.httpClient.get(this.BASE_URL_FILTER, {params})
+    return this.httpClient.get(`${this.BASE_URL}/residencia`, {params})
   }
 
   create(house : House):Observable<any>{
