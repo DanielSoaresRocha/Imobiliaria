@@ -44,16 +44,16 @@ public class BackendApplication implements CommandLineRunner {
 
 		Residencia res1 = new Residencia(null, "Casa com 3 dormitórios ",540.000,"Excelente casa duplex localizada no bairro Capim Macio, zona sul de Natal.",
 				"Rua João Vidal","Capim Macio","59082250","403","Piscina, Varanda, Churrasqueira","Natal",
-				"RN",283.00,4,2,4);
+				"RN",283.00,4,2,4,true, 100.0,50.0);
 		Residencia res2 = new Residencia(null, "Casa com 3 dormitórios para Alugar",1.100,"Casa em Candelária, com garagem para 03 (três) carros, sala para dois ambientes",
 				"Rua Barão de Serra Branca","Candelária","59065550\n","409","Piscina, Varanda, Churrasqueira","Natal",
-				"RN",109.00,2,2,2);
+				"RN",109.00,2,2,2,true,0.0,100.0);
 		Residencia res3 = new Residencia(null, "Kitnet cidade da esperança para Alugar",540.00,"Kitnet bairro cidade da esperança",
 				"Rua Juazeiro do Norte","Cidade da Esperança","59071030","403","Piscina, Varanda, Churrasqueira","Natal",
-				"RN",283.00,2,1,0);
+				"RN",283.00,2,1,0,false,20.0,5.0);
 		Residencia res4 = new Residencia(null, "Casa em Ielmo Marinho",100.00,"Casa no centro da cidade",
 				"Princesa Isabel","Centro","59490000","34","Próximo ao mercadinho","Ielmo Marinho",
-				"RN",14.00,2,1,0);
+				"RN",14.00,2,1,0,false,0.0,0.0);
 
 
 		produtoRepository.saveAll(Arrays.asList(aut1, aut2,aut3,aut4,aut5,res1,res2,res3,res4));
