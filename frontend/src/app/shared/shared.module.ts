@@ -12,9 +12,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CardHouseComponent } from './components';
 import {MatSliderModule} from '@angular/material/slider';
 
-
-//ngSelect
-import { NgSelectModule } from '@ng-select/ng-select';
+// Slick Carrossel
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    NgSelectModule,
-    MatSliderModule
+    MatSliderModule,
+    SlickCarouselModule
   ],
   providers: [
     HouseService
@@ -39,8 +38,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatFormFieldModule,
     MatCheckboxModule,
     CardHouseComponent,
-    NgSelectModule,
-    MatSliderModule
+    MatSliderModule,
+    SlickCarouselModule
   ]
 })
 export class SharedModule {}

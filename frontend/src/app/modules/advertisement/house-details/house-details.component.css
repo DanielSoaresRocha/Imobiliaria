@@ -1,0 +1,150 @@
+.houseDetails {
+  padding: 1.87rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.houseDetails > .card {
+  background-color: #e5e5e5;
+  padding: 1.87rem;
+  max-width: 1300px;
+  min-width: 1289px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.houseDetails .card section:nth-child(1) {
+  width: 58%;
+}
+
+.houseDetails .card section:nth-child(2) {
+  width: 40%;
+  padding: 0 20px 0 20px;
+}
+
+.houseDetails .card section .house .carrossel {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.houseDetails .card section .house .photo {
+  width: 70%;
+}
+
+.houseDetails .card section .house img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.houseDetails .card section:nth-child(2) h3 {
+  font-weight: bold;
+  font-size: 26px;
+  border-bottom: 1px solid black;
+}
+
+.houseDetails .card section:nth-child(2) .card {
+  background: #e1d8d8;
+  box-shadow: 9px 9px 12px rgba(193, 31, 31, 0.25);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.houseDetails .price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.houseDetails span {
+  font-family: Archivo;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 17px;
+  color: #757575;
+}
+
+.houseDetails span.price {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  color: #218549;
+}
+
+.houseDetails .rate {
+  width: 60%;
+}
+
+.houseDetails .rate div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.houseDetails .card .advertiser {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.houseDetails .card .advertiser span:nth-child(1) {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.houseDetails .group-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.houseDetails .group-buttons button {
+  width: 80%;
+  color: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.houseDetails .group-buttons button:nth-child(1) {
+  background: #38be3e;
+}
+
+.houseDetails .group-buttons button:nth-child(2) {
+  background: #e6b437;
+}
+
+.houseDetails .group-buttons button:nth-child(3) {
+  background: #fc497c;
+}
+
+.houseDetails .contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.houseDetails .contact span {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  margin-left: 24px;
+  color: #000000;
+}

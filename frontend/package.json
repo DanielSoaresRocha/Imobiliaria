@@ -22,7 +22,10 @@
     "@angular/platform-browser-dynamic": "~10.0.4",
     "@angular/router": "~10.0.4",
     "@ng-select/ng-select": "^5.0.8",
+    "jquery": "^3.5.1",
+    "ngx-slick-carousel": "^0.5.1",
     "rxjs": "~6.5.5",
+    "slick-carousel": "^1.8.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
