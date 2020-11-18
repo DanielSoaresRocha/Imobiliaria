@@ -19,15 +19,15 @@ public class ResidenciaCustomRepository {
         String query = "SELECT obj FROM Residencia obj ";
         String condicao = "WHERE";
         if(qtdQuartos != null){
-            query += condicao + " obj.qtdQuartos = :qtdQuartos";
+            query += condicao + " obj.qtdQuartos >= :qtdQuartos";
             condicao = " AND ";
         }
         if(qtdBanheiros != null){
-            query += condicao + " obj.qtdBanheiros = :qtdBanheiros";
+            query += condicao + " obj.qtdBanheiros >= :qtdBanheiros";
             condicao = " AND ";
         }
         if(qtdVagasNaGaragem != null){
-            query += condicao + " obj.qtdVagasNaGaragem = :qtdVagasNaGaragem";
+            query += condicao + " obj.qtdVagasNaGaragem >= :qtdVagasNaGaragem";
             condicao = " AND ";
         }
         if(minValor != null && maxValor != null){

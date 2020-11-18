@@ -52,6 +52,16 @@ public class ProdutoService {
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + Produto.class.getName()));
     }
     public List<Residencia> findFiltroResidencia(Integer qtdQuartos, Integer qtdBanheiros, Integer qtdVagasNaGaragem,Double minValor, Double maxValor, Double minMetrosQuadrados, Double maxMetrosQuadrados){
+        if( qtdQuartos != null && qtdQuartos == 0) {
+            qtdQuartos = null;
+        }
+        if(qtdBanheiros != null && qtdBanheiros == 0){
+            qtdBanheiros = null;
+        }
+        if(qtdVagasNaGaragem != null && qtdVagasNaGaragem == 0){
+            qtdVagasNaGaragem = null;
+        }
+
         return residenciaCustomRepository.find(qtdQuartos,qtdBanheiros,qtdVagasNaGaragem,minValor,maxValor, minMetrosQuadrados, maxMetrosQuadrados);
     }
 

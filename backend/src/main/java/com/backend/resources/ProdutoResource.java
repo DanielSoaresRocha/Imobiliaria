@@ -26,12 +26,6 @@ public class ProdutoResource {
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(path = "/residencia")
-    public ResponseEntity<List<Residencia>> findAllResidencia() {
-        List<Residencia> list = service.findAllResidencia();
-        return ResponseEntity.ok().body(list);
-    }
-
     @GetMapping(path = "/automovel")
     public ResponseEntity<List<Automovel>> findAllAutomovel() {
         List<Automovel> list = service.findAllAutomovel();
@@ -58,7 +52,7 @@ public class ProdutoResource {
         return ResponseEntity.ok().body(obj);
     }
 
-    @GetMapping(value = "/filter")
+    @GetMapping(path = "/residencia")
     public ResponseEntity<?> findResidenciaByfilter(@RequestParam(value = "qtd_quartos", required = false) Integer qtd_quartos,
                                                     @RequestParam(value = "qtdBanheiros", required = false) Integer qtdBanheiros,
                                                     @RequestParam(value = "qtdVagasNaGaragem", required = false) Integer qtdVagasNaGaragem,
