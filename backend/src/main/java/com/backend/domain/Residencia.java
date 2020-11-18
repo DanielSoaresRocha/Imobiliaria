@@ -24,9 +24,13 @@ public class Residencia  extends Produto {
     private Integer qtdQuartos;
     private Integer qtdBanheiros;
     private Integer qtdVagasNaGaragem;
+    private Boolean isVenda;
+    private Double valorCondominio;
+    private Double valorIptu;
+
 
     public Residencia(Integer id, String nome, Double valor, String descricao, String logradouro, String bairro,
-                      String cep, String numero, String complemento, String cidade, String estado, Double metrosQuadrados, Integer qtdQuartos, Integer qtdBanheiros, Integer qtdVagasNaGaragem) {
+                      String cep, String numero, String complemento, String cidade, String estado, Double metrosQuadrados, Integer qtdQuartos, Integer qtdBanheiros, Integer qtdVagasNaGaragem, Boolean isVenda, Double valorCondominio, Double valorIptu ) {
         super(id, nome, valor, descricao);
         this.logradouro = logradouro;
         this.bairro = bairro;
@@ -39,5 +43,8 @@ public class Residencia  extends Produto {
         this.qtdQuartos = qtdQuartos;
         this.qtdBanheiros = qtdBanheiros;
         this.qtdVagasNaGaragem = qtdVagasNaGaragem;
+        this.isVenda = isVenda;
+        this.valorCondominio = valorCondominio;
+        this.valorIptu = valorIptu;
     }
 }
