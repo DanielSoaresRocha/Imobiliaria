@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { House } from 'src/app/shared/models/house.model';
 import { HouseService } from 'src/app/shared/services';
+import { HouseFilter } from '../../../shared/models/house-filter.model'
 
 @Component({
   selector: 'app-client',
@@ -7,19 +9,13 @@ import { HouseService } from 'src/app/shared/services';
   styleUrls: ['./client.component.css'],
 })
 export class ClientComponent implements OnInit {
-  constructor(private houseService: HouseService) {}
-
   houses: any;
+  filter: HouseFilter;
 
-  minValue = 0;
-  maxValue = 0;
-  minMeters = 0;
-  maxMeters = 0;
-
-  numBedrooms = 0;
-  numBathrooms = 0;
-  numGarage = 0;
-
+  constructor(private houseService: HouseService) {
+    this.filter = new HouseFilter();
+  }
+  
   ngOnInit(): void {
     this.listar();
   }
@@ -28,54 +24,48 @@ export class ClientComponent implements OnInit {
     this.houseService.list().subscribe(
       (response) => {
         this.houses = response;
-        console.log(response)
+        //console.log(response)
       },
       (error) => console.log(error)
     );
   }
 
-  changeMinValue(value: number) {
-    this.minValue = value;
-    return value;
-  }
-  
-  changeMaxValue(value: number) {
-    this.maxValue = value;
-    return value;
-
-  }
-  
-  changeMinMeters(value: number) {
-    this.minMeters = value;
-    return value;
-  }
-  
-  changeMaxMeters(value: number) {
-    this.maxMeters = value;
-    return value;
+  listFilter(){
+    this.houseService.listFilter(this.filter).subscribe(
+      (response) =>{
+        this.houses = response;
+        console.log(response);
+      },
+      (error) => console.log(error)
+    );
   }
 
   changeBedroom(num : number){
-    if(this.numBedrooms == num){
-      this.numBedrooms = 0;
+    if(this.filter.qtdBedrooms == num){
+      this.filter.qtdBedrooms = 0;
     }else{
-      this.numBedrooms = num;
+      this.filter.qtdBedrooms = num;
     }
+
+    this.listFilter();
   }
   
   changeBathroom(num : number){
-    if(this.numBathrooms == num){
-      this.numBathrooms = 0;
+    if(this.filter.qtdBathrooms == num){
+      this.filter.qtdBathrooms = 0;
     }else{
-      this.numBathrooms = num;
+      this.filter.qtdBathrooms = num;
     }
+
+    this.listFilter();
   }
   
   changeGarage(num : number){
-    if(this.numGarage == num){
-      this.numGarage = 0;
+    if(this.filter.qtdGarage == num){
+      this.filter.qtdGarage = 0;
     }else{
-      this.numGarage = num;
+      this.filter.qtdGarage = num;
     }
+    this.listFilter();
   }
 }

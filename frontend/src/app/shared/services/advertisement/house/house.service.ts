@@ -1,18 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { House } from '../../../models/house.model'
+import { HouseFilter } from '../../../models/house-filter.model'
 
 @Injectable({
   providedIn: 'root',
 })
 export class HouseService {
+  
   private readonly BASE_URL = 'http://localhost:8080/produtos';
+  private readonly BASE_URL_FILTER = 'http://localhost:8080/produtos/filter';
 
   constructor(private httpClient: HttpClient) {}
 
   list(): Observable<any> {
     return this.httpClient.get(`${this.BASE_URL}/residencia`);
+  }
+
+  listFilter(filter: HouseFilter): Observable<any>{
+    filter.minValue = filter.minValue === null ? 0 : filter.minValue;
+    filter.maxValue = filter.maxValue === null ? 0 : filter.maxValue;
+    filter.minMeters = filter.minMeters === null ? 0 : filter.minMeters;
+    filter.maxMeters = filter.maxMeters === null ? 0 : filter.maxMeters;
+
+    let params = new HttpParams()
+      .set('qtdBanheiros', filter.qtdBathrooms+'')
+      .set('minValor', filter.minValue+'')
+      .set('maxValor', filter.maxValue+'')
+      .set('qtdVagasNaGaragem', filter.qtdGarage+'');
+
+    console.log(params.toString());
+    
+    return this.httpClient.get(this.BASE_URL_FILTER, {params})
   }
 
   create(house : House):Observable<any>{
