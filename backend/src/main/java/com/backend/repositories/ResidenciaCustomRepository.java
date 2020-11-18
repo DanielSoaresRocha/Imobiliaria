@@ -11,54 +11,83 @@ import java.util.List;
 public class ResidenciaCustomRepository {
 
     private final EntityManager em;
-    public ResidenciaCustomRepository(EntityManager em){
+
+    public ResidenciaCustomRepository(EntityManager em) {
         this.em = em;
     }
 
-    public List<Residencia> find (Integer qtdQuartos, Integer qtdBanheiros, Integer qtdVagasNaGaragem,Double minValor, Double maxValor, Double minMetrosQuadrados, Double maxMetrosQuadrados){
+    public List<Residencia> find(Integer qtdQuartos, Integer qtdBanheiros, Integer qtdVagasNaGaragem, Double minValor, Double maxValor, Double minMetrosQuadrados, Double maxMetrosQuadrados) {
         String query = "SELECT obj FROM Residencia obj ";
         String condicao = "WHERE";
-        if(qtdQuartos != null){
+        if (qtdQuartos != null) {
             query += condicao + " obj.qtdQuartos >= :qtdQuartos";
             condicao = " AND ";
         }
-        if(qtdBanheiros != null){
+        if (qtdBanheiros != null) {
             query += condicao + " obj.qtdBanheiros >= :qtdBanheiros";
             condicao = " AND ";
         }
-        if(qtdVagasNaGaragem != null){
+        if (qtdVagasNaGaragem != null) {
             query += condicao + " obj.qtdVagasNaGaragem >= :qtdVagasNaGaragem";
             condicao = " AND ";
         }
-        if(minValor != null && maxValor != null){
+        if (minValor != null && maxValor != null) {
             query += condicao + " obj.valor BETWEEN :minValor AND :maxValor";
             condicao = " AND ";
         }
-        if(minMetrosQuadrados != null && maxMetrosQuadrados != null){
+        if (minValor == null && maxValor != null) {
+            query += condicao + " obj.valor <= :maxValor";
+            condicao = " AND ";
+        }
+        if (minValor != null && maxValor == null) {
+            query += condicao + " obj.valor >= :minValor";
+            condicao = " AND ";
+        }
+        if (minMetrosQuadrados != null && maxMetrosQuadrados != null) {
             query += condicao + " obj.metrosQuadrados BETWEEN :minMetrosQuadrados AND :maxMetrosQuadrados";
+        }
+        if (minMetrosQuadrados == null && maxMetrosQuadrados != null) {
+            query += condicao + " obj.metrosQuadrados <= :maxMetrosQuadrados";
+        }
+
+        if (minMetrosQuadrados != null && maxMetrosQuadrados == null) {
+            query += condicao + " obj.metrosQuadrados >= :minMetrosQuadrados";
         }
 
 
         TypedQuery<Residencia> q = em.createQuery(query, Residencia.class);
 
-        if(qtdQuartos != null){
-            q.setParameter("qtdQuartos",qtdQuartos);
+        if (qtdQuartos != null) {
+            q.setParameter("qtdQuartos", qtdQuartos);
         }
-        if(qtdBanheiros != null){
-            q.setParameter("qtdBanheiros",qtdBanheiros);
+        if (qtdBanheiros != null) {
+            q.setParameter("qtdBanheiros", qtdBanheiros);
         }
-        if(qtdVagasNaGaragem != null){
-            q.setParameter("qtdVagasNaGaragem",qtdVagasNaGaragem);
+        if (qtdVagasNaGaragem != null) {
+            q.setParameter("qtdVagasNaGaragem", qtdVagasNaGaragem);
         }
-        if(minValor != null && maxValor != null){
-            q.setParameter("minValor",minValor);
-            q.setParameter("maxValor",maxValor);
+        if (minValor != null && maxValor != null) {
+            q.setParameter("minValor", minValor);
+            q.setParameter("maxValor", maxValor);
         }
-        if(minMetrosQuadrados != null && maxMetrosQuadrados != null) {
-            q.setParameter("minMetrosQuadrados",minMetrosQuadrados);
-            q.setParameter("maxMetrosQuadrados",maxMetrosQuadrados);
+        if (minValor == null && maxValor != null) {
+            q.setParameter("maxValor", maxValor);
         }
-            return q.getResultList();
+        if (minValor != null && maxValor == null) {
+            q.setParameter("minValor", minValor);
+        }
+
+        if (minMetrosQuadrados != null && maxMetrosQuadrados != null) {
+            q.setParameter("minMetrosQuadrados", minMetrosQuadrados);
+            q.setParameter("maxMetrosQuadrados", maxMetrosQuadrados);
+        }
+        if (minMetrosQuadrados == null && maxMetrosQuadrados != null) {
+            q.setParameter("maxMetrosQuadrados", maxMetrosQuadrados);
+        }
+        if (minMetrosQuadrados != null && maxMetrosQuadrados == null) {
+            q.setParameter("minMetrosQuadrados", minMetrosQuadrados);
+        }
+        return q.getResultList();
     }
 
 }
