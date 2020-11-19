@@ -9,16 +9,15 @@ import { HouseService } from './services';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { CardHouseComponent } from './components';
 import {MatSliderModule} from '@angular/material/slider';
 
-
-//ngSelect
-import { NgSelectModule } from '@ng-select/ng-select';
+import { CardHouseComponent } from './components';
+import { SliderPhotosComponent } from './components/slider-photos/slider-photos.component';
 
 @NgModule({
   declarations: [
-    CardHouseComponent
+    CardHouseComponent,
+    SliderPhotosComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +26,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    NgSelectModule,
     MatSliderModule
   ],
   providers: [
@@ -39,7 +37,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatFormFieldModule,
     MatCheckboxModule,
     CardHouseComponent,
-    NgSelectModule,
+    SliderPhotosComponent,
     MatSliderModule
   ]
 })

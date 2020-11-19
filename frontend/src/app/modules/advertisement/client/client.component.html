@@ -132,7 +132,7 @@
     </div>
 
     <section>
-      <div class="fieldset" *ngFor="let house of houses">
+      <div class="fieldset" *ngFor="let house of houses" (click)="houseDetails(house)">
         <img src="../../../../assets/casa.png" alt="Casa" />
 
         <div class="content">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { House } from 'src/app/shared/models/house.model';
 import { HouseService } from 'src/app/shared/services';
 import { HouseFilter } from '../../../shared/models/house-filter.model'
@@ -12,7 +13,7 @@ export class ClientComponent implements OnInit {
   houses: any;
   filter: HouseFilter;
 
-  constructor(private houseService: HouseService) {
+  constructor(private houseService: HouseService, private router: Router) {
     this.filter = new HouseFilter();
   }
   
@@ -67,5 +68,9 @@ export class ClientComponent implements OnInit {
       this.filter.qtdGarage = num;
     }
     this.listFilter();
+  }
+
+  houseDetails(house: House): void {
+    this.router.navigate([`/advertisement/house-details`, house.id]);
   }
 }

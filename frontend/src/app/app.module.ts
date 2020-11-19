@@ -9,7 +9,6 @@ import { AdvertisementModule } from './modules/advertisement';
 import { AdvertiserModule } from './modules/advertiser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Error404Component } from './pages/error404/error404.component';
-import { SharedModule } from './shared';
 
 @NgModule({
   declarations: [
@@ -22,10 +21,9 @@ import { SharedModule } from './shared';
     WelcomeModule,
     AdvertisementModule,
     AdvertiserModule,
-    BrowserAnimationsModule,
-    SharedModule
+    BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

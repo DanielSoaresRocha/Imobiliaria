@@ -1,0 +1,13 @@
+.containerSlide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerSlide img.img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 8px;
+}

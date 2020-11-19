@@ -1,0 +1,64 @@
+<div class="houseDetails">
+    <div class="card">
+        <section>
+            <div class="house" style="display: flex;">
+                <div class="carrossel">
+                    <app-slider-photos></app-slider-photos>
+                </div>
+                <div class="photo">
+                    <img src="../../../../assets/background.png"/>
+                </div>
+            </div>
+            <div class="content">
+                <hr style="border:1px solid #B7B7B7; margin-top: 20px;" />
+
+                <p style="margin-top: 20px;">
+                    {{house.descricao}}
+                </p>
+            </div>
+        </section>
+        <section>
+            <h3>{{house.nome}}</h3>
+
+            <div class="card">
+                <div class="price">
+                    <div class="buy">
+                        <span style="font-weight: bold; text-transform: uppercase;">Compra</span>
+                        <div style="margin-top: 20px;">
+                            <span class="price">{{formatValue(house.valor)}}</span>
+                        </div>
+                    </div>
+                    <span style="border: 1px solid black;"></span>
+                    <div class="rate">
+                        <div>
+                            <span>Taxa de condômino</span>
+                            <span style="color: #000000;">R$ 2.055</span>
+                        </div>
+                        <div style="margin-top: 20px">
+                            <span>IPTU</span>
+                            <span style="color: #000000;">R$ 2.055</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border:1px solid #B7B7B7; margin-top: 20px;"/>
+
+                <div class="advertiser">
+                    <span>Anunciante</span>
+                    <span style="color: #000000;">Daniel Soares</span>
+                </div>
+
+                <div class="group-buttons">
+                    <button>Contato via WhatsApp</button>
+                    <button>Quero mais informações</button>
+                    <button>Favoritar</button>
+                </div>
+
+                <div class="contact">
+                    <img src="../../../../assets/icons/phone.png"/>
+                    <span>(84) 9 9144-2112</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

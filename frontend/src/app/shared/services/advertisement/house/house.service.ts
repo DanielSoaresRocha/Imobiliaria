@@ -18,19 +18,15 @@ export class HouseService {
   }
 
   listFilter(filter: HouseFilter): Observable<any>{
-    filter.minValue = filter.minValue === null ? 0 : filter.minValue;
-    filter.maxValue = filter.maxValue === null ? 0 : filter.maxValue;
-    filter.minMeters = filter.minMeters === null ? 0 : filter.minMeters;
-    filter.maxMeters = filter.maxMeters === null ? 0 : filter.maxMeters;
 
     let params = new HttpParams()
-      .set('minValor', filter.minValue+'')
-      .set('maxValor', filter.maxValue+'')
-      .set('minMetrosQuadrados', filter.minMeters+'')
-      .set('maxMetrosQuadrados', filter.maxMeters+'')
-      .set('qtdBanheiros', filter.qtdBathrooms+'')
-      .set('qtdQuartos', filter.qtdBedrooms+'')
-      .set('qtdVagasNaGaragem', filter.qtdGarage+'');
+      .set('minValor', filter.minValue == null ? null : filter.minValue.toString())
+      .set('maxValor', filter.maxValue == null ? null : filter.maxValue.toString())
+      .set('minMetrosQuadrados', filter.minMeters == null ? null : filter.minMeters.toString())
+      .set('maxMetrosQuadrados', filter.maxMeters == null ? null : filter.maxMeters.toString())
+      .set('qtdBanheiros', filter.qtdBathrooms == null ? null : filter.qtdBathrooms.toString())
+      .set('qtdQuartos', filter.qtdBedrooms == null ? null : filter.qtdBedrooms.toString())
+      .set('qtdVagasNaGaragem', filter.qtdGarage == null ? null : filter.qtdGarage.toString());
 
     console.log(params.toString());
     
@@ -39,5 +35,9 @@ export class HouseService {
 
   create(house : House):Observable<any>{
     return this.httpClient.post(`${this.BASE_URL}/residencia`, house);
+  }
+
+  findById(id: string){
+    return this.httpClient.get<House>(`${this.BASE_URL}/${id}`);
   }
 }

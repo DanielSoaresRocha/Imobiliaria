@@ -5,9 +5,10 @@ import { AdvertisementRoutingModule } from './advertisement-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { SharedModule } from 'src/app/shared';
+import { HouseDetailsComponent } from './house-details/house-details.component';
 
 @NgModule({
-  declarations: [ClientComponent, NavbarComponent],
+  declarations: [ClientComponent, NavbarComponent, HouseDetailsComponent],
   imports: [CommonModule, AdvertisementRoutingModule, SharedModule],
   providers: [],
 })
