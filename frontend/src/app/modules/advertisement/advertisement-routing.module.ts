@@ -14,7 +14,7 @@ const routes: Routes = [
                 component: ClientComponent
             },
             {
-                path: "house-details",
+                path: "house-details/:id",
                 component: HouseDetailsComponent
             }
         ]

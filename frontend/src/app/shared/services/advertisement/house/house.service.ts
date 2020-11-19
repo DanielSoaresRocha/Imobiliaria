@@ -36,4 +36,8 @@ export class HouseService {
   create(house : House):Observable<any>{
     return this.httpClient.post(`${this.BASE_URL}/residencia`, house);
   }
+
+  findById(id: string){
+    return this.httpClient.get<House>(`${this.BASE_URL}/${id}`);
+  }
 }

@@ -3,25 +3,29 @@
         <section>
             <div class="house" style="display: flex;">
                 <div class="carrossel">
-                    Slider
+                    <app-slider-photos></app-slider-photos>
                 </div>
                 <div class="photo">
                     <img src="../../../../assets/background.png"/>
                 </div>
             </div>
             <div class="content">
-                
+                <hr style="border:1px solid #B7B7B7; margin-top: 20px;" />
+
+                <p style="margin-top: 20px;">
+                    {{house.descricao}}
+                </p>
             </div>
         </section>
         <section>
-            <h3>Casa com 6 quartos a venda</h3>
+            <h3>{{house.nome}}</h3>
 
             <div class="card">
                 <div class="price">
                     <div class="buy">
                         <span style="font-weight: bold; text-transform: uppercase;">Compra</span>
                         <div style="margin-top: 20px;">
-                            <span class="price">R$ 490.000</span>
+                            <span class="price">{{formatValue(house.valor)}}</span>
                         </div>
                     </div>
                     <span style="border: 1px solid black;"></span>

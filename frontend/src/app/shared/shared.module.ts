@@ -9,15 +9,15 @@ import { HouseService } from './services';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { CardHouseComponent } from './components';
 import {MatSliderModule} from '@angular/material/slider';
 
-// Slick Carrossel
-import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { CardHouseComponent } from './components';
+import { SliderPhotosComponent } from './components/slider-photos/slider-photos.component';
 
 @NgModule({
   declarations: [
-    CardHouseComponent
+    CardHouseComponent,
+    SliderPhotosComponent
   ],
   imports: [
     CommonModule,
@@ -26,8 +26,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatSliderModule,
-    SlickCarouselModule
+    MatSliderModule
   ],
   providers: [
     HouseService
@@ -38,8 +37,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     MatFormFieldModule,
     MatCheckboxModule,
     CardHouseComponent,
-    MatSliderModule,
-    SlickCarouselModule
+    SliderPhotosComponent,
+    MatSliderModule
   ]
 })
 export class SharedModule {}
