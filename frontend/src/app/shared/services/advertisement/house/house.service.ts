@@ -18,19 +18,14 @@ export class HouseService {
   }
 
   listFilter(filter: HouseFilter): Observable<any>{
-
-    let params = new HttpParams()
-      .set('minValor', filter.minValue == null ? null : filter.minValue.toString())
-      .set('maxValor', filter.maxValue == null ? null : filter.maxValue.toString())
-      .set('minMetrosQuadrados', filter.minMeters == null ? null : filter.minMeters.toString())
-      .set('maxMetrosQuadrados', filter.maxMeters == null ? null : filter.maxMeters.toString())
-      .set('qtdBanheiros', filter.qtdBathrooms == null ? null : filter.qtdBathrooms.toString())
-      .set('qtdQuartos', filter.qtdBedrooms == null ? null : filter.qtdBedrooms.toString())
-      .set('qtdVagasNaGaragem', filter.qtdGarage == null ? null : filter.qtdGarage.toString());
-
-    console.log(params.toString());
-    
-    return this.httpClient.get(`${this.BASE_URL}/residencia`, {params})
+    return this.httpClient
+      .get(`${this.BASE_URL}/residencia?minValor=${filter.minValue != null ? filter.minValue :0}`+
+        `${filter.maxValue != null ? '&maxValor='+filter.maxValue :''}`+
+        `${filter.minMeters != null ? '&minMetrosQuadrados='+filter.minMeters :''}`+
+        `${filter.maxMeters != null ? '&maxMetrosQuadrados='+filter.maxMeters :''}`+
+        `${filter.qtdBathrooms != null ? '&qtdBanheiros='+filter.qtdBathrooms :''}`+
+        `${filter.qtdBedrooms != null ? '&qtd_quartos='+filter.qtdBedrooms :''}`+
+        `${filter.qtdGarage != null ? '&qtdVagasNaGaragem='+filter.qtdGarage :''}`);
   }
 
   create(house : House):Observable<any>{

@@ -59,6 +59,7 @@
                       class="example-right-align"
                       [(ngModel)]="filter.maxMeters"
                       name="Área máxima"
+                      (blur)="listFilter()"
                       >
                   <span matPrefix>R$&nbsp;</span>
                 </mat-form-field>
