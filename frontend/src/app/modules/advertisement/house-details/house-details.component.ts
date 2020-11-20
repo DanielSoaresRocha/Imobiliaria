@@ -33,4 +33,9 @@ export class HouseDetailsComponent implements OnInit {
       return ''
   }
 
+  formatLocale():string{
+    return `${this.house.logradouro}, ${this.house.numero} - ${this.house.bairro}, 
+            ${this.house.cidade} - ${this.house.estado}`
+  }
+
 }

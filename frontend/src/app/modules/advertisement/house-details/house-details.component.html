@@ -9,16 +9,44 @@
                     <img src="../../../../assets/background.png"/>
                 </div>
             </div>
+            <hr style="border:1px solid #B7B7B7; margin-top: 20px;" />
             <div class="content">
-                <hr style="border:1px solid #B7B7B7; margin-top: 20px;" />
+                <h3>Detalhes</h3>
 
-                <p style="margin-top: 20px;">
-                    {{house.descricao}}
-                </p>
+                <div class="details">
+                    <div class="info">
+                        <img src="../../../../assets/icons/size.png"/>
+                        <span>{{house.metrosQuadrados}}m²</span>
+                    </div>
+                    
+                    <div class="info">    
+                        <img src="../../../../assets/icons/bed.png" />
+                        <span>{{house.qtdQuartos}}</span>
+                    </div>
+                    
+                    <div class="info">
+                        <img src="../../../../assets/icons/bathroom.png" />
+                        <span>{{house.qtdBanheiros}}</span>
+                    </div>
+
+                    <div class="info">
+                        <img src="../../../../assets/icons/garage.png" />
+                        <span>{{house.qtdVagasNaGaragem}}</span>
+                    </div>
+                </div>
+
+                <h3>Localização</h3>
+
+                <div class="locale">
+                    <span>{{formatLocale()}}</span>
+                </div>
+                
+                <h3>Descrição</h3>
+                <span style="font-size: 18px;">{{house.descricao}}</span>
             </div>
         </section>
         <section>
-            <h3>{{house.nome}}</h3>
+            <h3 style="border-bottom: 1px solid black; font-size: 24px;">{{house.nome}}</h3>
 
             <div class="card">
                 <div class="price">
