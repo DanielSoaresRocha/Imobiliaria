@@ -41,10 +41,11 @@
   border-radius: 8px;
 }
 
-.houseDetails .card section:nth-child(2) h3 {
+.houseDetails .card h3 {
   font-weight: bold;
-  font-size: 26px;
-  border-bottom: 1px solid black;
+  font-size: 20px;
+  font-family: Archivo;
+  font-style: normal;
 }
 
 .houseDetails .card section:nth-child(2) .card {
@@ -147,4 +148,37 @@
   text-align: center;
   margin-left: 24px;
   color: #000000;
+}
+
+.houseDetails .content {
+  background-color: #cee0cc;
+  border-radius: 9px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.houseDetails .content div:not(.info) {
+  margin-bottom: 15px;
+}
+
+.houseDetails .details {
+  display: flex;
+  align-items: center;
+}
+
+.houseDetails .info {
+  display: flex;
+  align-items: center;
+}
+
+.houseDetails .info:nth-child(n + 2) {
+  margin-left: 20px;
+}
+
+.houseDetails .details span {
+  margin-left: 10px;
+}
+
+.houseDetails .locale {
+  margin-top: 20px;
 }
