@@ -56,6 +56,18 @@
   box-shadow: 7px 6px 20px 7px rgba(229, 229, 229, 0.59);
   padding: 1.25rem;
   margin-left: 31%;
+  min-height: 512px;
+}
+
+.containerClient section .empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins";
+  font-size: 24px;
+  font-weight: 700;
+  height: 100%;
+  justify-content: space-around;
 }
 
 .containerClient section .fieldset {

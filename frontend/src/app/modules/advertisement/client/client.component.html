@@ -133,6 +133,11 @@
     </div>
 
     <section>
+      <div *ngIf="houses.length === 0" class="empty">
+          Oops!! Casa não encontrada
+          <img style="margin-bottom: 40px;" src="../../../../assets/house.png"/>
+      </div>
+
       <div class="fieldset" *ngFor="let house of houses" (click)="houseDetails(house)">
         <img src="../../../../assets/casa.png" alt="Casa" />
 
