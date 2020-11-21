@@ -20,6 +20,9 @@ public class Produto implements Serializable {
     private String nome;
     private Double valor;
     private String descricao;
+    @ManyToOne
+    @JoinColumn(name="cliente_id")
+    private Anunciante anunciante;
 
     @Override
     public int hashCode() {
