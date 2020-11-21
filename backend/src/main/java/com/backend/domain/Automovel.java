@@ -23,8 +23,8 @@ public class Automovel extends Produto{
     private Double potenciaMotor;
     private String combustivel;
 
-    public Automovel(Integer id, String nome, Double valor, String descricao, String modelo, String cor, String quilometragem, String marca, Integer ano, Integer portas, String cambio, Double potenciaMotor, String combustivel) {
-        super(id, nome, valor, descricao);
+    public Automovel(Integer id, String nome, Double valor, String descricao, Anunciante anunciante, String modelo, String cor, String quilometragem, String marca, Integer ano, Integer portas, String cambio, Double potenciaMotor, String combustivel) {
+        super(id, nome, valor, descricao, anunciante);
         this.modelo = modelo;
         this.cor = cor;
         this.quilometragem = quilometragem;

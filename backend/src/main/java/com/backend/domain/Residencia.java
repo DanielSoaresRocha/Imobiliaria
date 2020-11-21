@@ -29,9 +29,9 @@ public class Residencia  extends Produto {
     private Double valorIptu;
 
 
-    public Residencia(Integer id, String nome, Double valor, String descricao, String logradouro, String bairro,
+    public Residencia(Integer id, String nome, Double valor, String descricao, Anunciante anunciante, String logradouro, String bairro,
                       String cep, String numero, String complemento, String cidade, String estado, Double metrosQuadrados, Integer qtdQuartos, Integer qtdBanheiros, Integer qtdVagasNaGaragem, Boolean isVenda, Double valorCondominio, Double valorIptu ) {
-        super(id, nome, valor, descricao);
+        super(id, nome, valor, descricao, anunciante);
         this.logradouro = logradouro;
         this.bairro = bairro;
         this.cep = cep;
