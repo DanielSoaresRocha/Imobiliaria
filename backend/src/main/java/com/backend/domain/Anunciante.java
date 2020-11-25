@@ -1,5 +1,7 @@
 package com.backend.domain;
 
+import com.backend.domain.enums.Perfil;
+import com.backend.domain.enums.TipoCliente;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -23,21 +26,49 @@ public class Anunciante implements Serializable {
     @Column(unique=true)
     private String email;
     private  String cpfOuCnpj;
+    private Integer tipo;
+
 
     @ElementCollection
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<>();
 
+    @ElementCollection(fetch=FetchType.EAGER)
+    @CollectionTable(name="PERFIS")
+    private Set<Integer> perfis = new HashSet<>();
+
+
     @JsonIgnore
     @OneToMany(mappedBy="anunciante")
     private List<Produto> pedidos = new ArrayList<>();
 
-    public Anunciante(Integer id, String nome, String email, String cpfOuCnpj){
+    public Anunciante(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo){
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
+        this.tipo = (tipo==null) ? null : tipo.getCod();
+        addPerfil(Perfil.ANUNCIANTE);
+
+
     }
+
+    public TipoCliente getTipo() {
+        return TipoCliente.toEnum(tipo);
+    }
+
+    public void setTipo(TipoCliente tipo) {
+        this.tipo = tipo.getCod();
+    }
+
+    public Set<Perfil> getPerfis() {
+        return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+    }
+
+    public void addPerfil(Perfil perfil) {
+        perfis.add(perfil.getCod());
+    }
+
 
     @Override
     public boolean equals(Object o) {

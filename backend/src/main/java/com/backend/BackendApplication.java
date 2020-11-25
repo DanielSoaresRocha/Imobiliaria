@@ -4,6 +4,8 @@ import com.backend.domain.Anunciante;
 import com.backend.domain.Automovel;
 import com.backend.domain.Produto;
 import com.backend.domain.Residencia;
+import com.backend.domain.enums.Perfil;
+import com.backend.domain.enums.TipoCliente;
 import com.backend.repositories.AnuncianteRepository;
 import com.backend.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +36,18 @@ public class BackendApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		Anunciante anun1 = new Anunciante(null,"Wesley Leocadio","sivawesley374@gmail.com","12088879471");
+		Anunciante anun1 = new Anunciante(null,"Wesley Leocadio","sivawesley374@gmail.com","12088879471", TipoCliente.PESSOAFISICA);
 		anun1.getTelefones().addAll(Arrays.asList("27363323","93838393"));
-		Anunciante anun2 = new Anunciante(null,"Daniel Soares","denk@gmail.com","12288879471");
+		anun1.addPerfil(Perfil.ADMIN);
+
+		Anunciante anun2 = new Anunciante(null,"Daniel Soares","denk@gmail.com","12288879471", TipoCliente.PESSOAFISICA);
 		anun2.getTelefones().addAll(Arrays.asList("000000000"));
-		Anunciante anun3 = new Anunciante(null,"Pedro Ricardo","pedroRicardo@gmail.com","12088879472");
+		anun1.addPerfil(Perfil.ANUNCIANTE);
+
+		Anunciante anun3 = new Anunciante(null,"Pedro Ricardo","pedroRicardo@gmail.com","12088879472", TipoCliente.PESSOAFISICA);
 		anun3.getTelefones().addAll(Arrays.asList("000000000","911111111"));
+		anun1.addPerfil(Perfil.ANUNCIANTE);
+
 		anuncianteRepository.saveAll(Arrays.asList(anun1, anun2, anun3));
 
 //

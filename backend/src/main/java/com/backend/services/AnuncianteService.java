@@ -68,7 +68,7 @@ public class AnuncianteService {
     }
 
     public Anunciante fromDTO(AnuncianteDTO objDto) {
-        return new Anunciante(objDto.getId(), objDto.getNome(), objDto.getEmail(), null, null,null);
+        return new Anunciante(objDto.getId(), objDto.getNome(), objDto.getEmail(), null, null);
     }
 
 
