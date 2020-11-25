@@ -8,17 +8,18 @@ import javax.validation.ConstraintValidatorContext;
 
 import com.backend.domain.Anunciante;
 import com.backend.domain.enums.TipoCliente;
+import com.backend.dto.AnuncianteNewDTO;
 import com.backend.resources.exception.FieldMessage;
 import com.backend.services.validation.utils.BR;
 
-public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert, Anunciante> {
+public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert, AnuncianteNewDTO> {
 
     @Override
     public void initialize(ClienteInsert ann) {
     }
 
     @Override
-    public boolean isValid(Anunciante objDto, ConstraintValidatorContext context) {
+    public boolean isValid(AnuncianteNewDTO objDto, ConstraintValidatorContext context) {
 
         List<FieldMessage> list = new ArrayList<>();
 

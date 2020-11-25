@@ -1,7 +1,9 @@
 package com.backend.services;
 
 import com.backend.domain.Anunciante;
+import com.backend.domain.enums.TipoCliente;
 import com.backend.dto.AnuncianteDTO;
+import com.backend.dto.AnuncianteNewDTO;
 import com.backend.repositories.AnuncianteRepository;
 import com.backend.services.exceptions.DataIntegrityException;
 import com.backend.services.exceptions.ObjectNotFoundException;
@@ -69,6 +71,19 @@ public class AnuncianteService {
 
     public Anunciante fromDTO(AnuncianteDTO objDto) {
         return new Anunciante(objDto.getId(), objDto.getNome(), objDto.getEmail(), null, null);
+    }
+
+    public Anunciante fromDTO(AnuncianteNewDTO objDto) {
+        Anunciante cli = new Anunciante(null, objDto.getNome(), objDto.getEmail(), objDto.getCpfOuCnpj(),
+                TipoCliente.toEnum(objDto.getTipo()));
+        cli.getTelefones().add(objDto.getTelefone1());
+        if (objDto.getTelefone2() != null) {
+            cli.getTelefones().add(objDto.getTelefone2());
+        }
+        if (objDto.getTelefone3() != null) {
+            cli.getTelefones().add(objDto.getTelefone3());
+        }
+        return cli;
     }
 
 

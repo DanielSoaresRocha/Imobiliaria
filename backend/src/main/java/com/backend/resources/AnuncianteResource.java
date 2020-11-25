@@ -2,6 +2,7 @@ package com.backend.resources;
 
 import com.backend.domain.Anunciante;
 import com.backend.dto.AnuncianteDTO;
+import com.backend.dto.AnuncianteNewDTO;
 import com.backend.services.AnuncianteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -40,8 +41,10 @@ public class AnuncianteResource {
         return ResponseEntity.ok().body(obj);
     }
 
+
     @PostMapping
-    public ResponseEntity<Void> insert(@Valid @RequestBody Anunciante obj) {
+    public ResponseEntity<Void> insert(@Valid @RequestBody AnuncianteNewDTO objDto) {
+        Anunciante obj = service.fromDTO(objDto);
         obj = service.insert(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getId()).toUri();
