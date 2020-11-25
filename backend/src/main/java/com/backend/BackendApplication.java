@@ -36,7 +36,7 @@ public class BackendApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		Anunciante anun1 = new Anunciante(null,"Wesley Leocadio","sivawesley374@gmail.com","12088879471", TipoCliente.PESSOAFISICA);
+		Anunciante anun1 = new Anunciante(null,"Wesley Leocadio","sivawesley374@gmail.com","12088879471", TipoCliente.PESSOAJURIDICA);
 		anun1.getTelefones().addAll(Arrays.asList("27363323","93838393"));
 		anun1.addPerfil(Perfil.ADMIN);
 

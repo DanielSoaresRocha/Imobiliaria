@@ -5,12 +5,15 @@ import com.backend.domain.enums.TipoCliente;
 import com.backend.dto.AnuncianteDTO;
 import com.backend.dto.AnuncianteNewDTO;
 import com.backend.repositories.AnuncianteRepository;
+import com.backend.resources.exception.FieldMessage;
 import com.backend.services.exceptions.DataIntegrityException;
 import com.backend.services.exceptions.ObjectNotFoundException;
+import com.backend.services.validation.utils.BR;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,6 +77,7 @@ public class AnuncianteService {
     }
 
     public Anunciante fromDTO(AnuncianteNewDTO objDto) {
+        isValid(objDto);
         Anunciante cli = new Anunciante(null, objDto.getNome(), objDto.getEmail(), objDto.getCpfOuCnpj(),
                 TipoCliente.toEnum(objDto.getTipo()));
         cli.getTelefones().add(objDto.getTelefone1());
@@ -83,9 +87,29 @@ public class AnuncianteService {
         if (objDto.getTelefone3() != null) {
             cli.getTelefones().add(objDto.getTelefone3());
         }
+
+
         return cli;
     }
 
+    public void isValid (AnuncianteNewDTO objDto){
+        List<FieldMessage> list = new ArrayList<>();
 
+        if (objDto.getTipo().equals(TipoCliente.PESSOAFISICA.getCod()) && !BR.isValidCPF(objDto.getCpfOuCnpj())) {
+            throw new DataIntegrityException(
+                    "CPF inválido!");
+        }
+
+        if (objDto.getTipo().equals(TipoCliente.PESSOAJURIDICA.getCod()) && !BR.isValidCNPJ(objDto.getCpfOuCnpj())) {
+            throw new DataIntegrityException(
+                    "CNPJ inválido!");
+        }
+        Anunciante aux = anuncianteRepository.findByEmail(objDto.getEmail());
+        if (aux != null) {
+            throw new ObjectNotFoundException(
+                "Email já existente");
+        }
+
+    }
 
 }
