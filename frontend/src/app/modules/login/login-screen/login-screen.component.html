@@ -1,0 +1,42 @@
+<div class="container-login">
+  <div class="backdrop">
+    <div class="box-login">
+      <form class='example-form'>
+        <span>
+          Bem-vindo
+        </span>
+        <span>
+          <img src="../../../assets/logo.png" alt="logo-example">
+        </span>
+
+        <div class="inputs">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput 
+                   placeholder="Exemplo@seuemail.com" 
+                   type="email"
+                   value="">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Senha</mat-label>
+            <input matInput 
+                   placeholder="" 
+                   type="password"
+                   value="">
+          </mat-form-field>
+
+          
+        </div>
+       
+      </form>
+
+      <a [routerLink]="['/advertisement/client']"><button mat-raised-button>Acessar</button></a>
+
+      <div class="footer-box">
+        <p>Ainda não é cadastrado? <a [routerLink]= "['/welcome']">Cadastre-se</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+

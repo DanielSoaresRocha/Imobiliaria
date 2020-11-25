@@ -9,7 +9,8 @@ import { AdvertisementModule } from './modules/advertisement';
 import { AdvertiserModule } from './modules/advertiser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Error404Component } from './pages/error404/error404.component';
-
+import { LoginModule } from './modules/login/login.module';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { Error404Component } from './pages/error404/error404.component';
     WelcomeModule,
     AdvertisementModule,
     AdvertiserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
