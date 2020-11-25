@@ -27,6 +27,8 @@ public class Anunciante implements Serializable {
     private String email;
     private  String cpfOuCnpj;
     private Integer tipo;
+    @JsonIgnore
+    private String senha;
 
 
     @ElementCollection
@@ -42,15 +44,14 @@ public class Anunciante implements Serializable {
     @OneToMany(mappedBy="anunciante")
     private List<Produto> pedidos = new ArrayList<>();
 
-    public Anunciante(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo){
+    public Anunciante(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo, String senha){
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipo = (tipo==null) ? null : tipo.getCod();
         addPerfil(Perfil.ANUNCIANTE);
-
-
+        this.senha = senha;
     }
 
     public TipoCliente getTipo() {

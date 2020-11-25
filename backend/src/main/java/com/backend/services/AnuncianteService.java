@@ -11,6 +11,7 @@ import com.backend.services.exceptions.ObjectNotFoundException;
 import com.backend.services.validation.utils.BR;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,6 +22,10 @@ import java.util.Optional;
 public class AnuncianteService {
     @Autowired
     private AnuncianteRepository anuncianteRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder pe;
+
 
     public Optional<Anunciante> find(Integer id) {
 
@@ -43,6 +48,7 @@ public class AnuncianteService {
         updateData(newObj, obj);
         return anuncianteRepository.save(newObj.get());
     }
+
     private void updateData(Optional<Anunciante> newObj, Anunciante obj) {
         newObj.get().setNome(obj.getNome());
         newObj.get().setEmail(obj.getEmail());
@@ -73,13 +79,13 @@ public class AnuncianteService {
     }
 
     public Anunciante fromDTO(AnuncianteDTO objDto) {
-        return new Anunciante(objDto.getId(), objDto.getNome(), objDto.getEmail(), null, null);
+        return new Anunciante(objDto.getId(), objDto.getNome(), objDto.getEmail(), null, null, null);
     }
 
     public Anunciante fromDTO(AnuncianteNewDTO objDto) {
         isValid(objDto);
         Anunciante cli = new Anunciante(null, objDto.getNome(), objDto.getEmail(), objDto.getCpfOuCnpj(),
-                TipoCliente.toEnum(objDto.getTipo()));
+                TipoCliente.toEnum(objDto.getTipo()), pe.encode(objDto.getSenha()));
         cli.getTelefones().add(objDto.getTelefone1());
         if (objDto.getTelefone2() != null) {
             cli.getTelefones().add(objDto.getTelefone2());
@@ -92,7 +98,7 @@ public class AnuncianteService {
         return cli;
     }
 
-    public void isValid (AnuncianteNewDTO objDto){
+    public void isValid(AnuncianteNewDTO objDto) {
         List<FieldMessage> list = new ArrayList<>();
 
         if (objDto.getTipo().equals(TipoCliente.PESSOAFISICA.getCod()) && !BR.isValidCPF(objDto.getCpfOuCnpj())) {
@@ -107,7 +113,7 @@ public class AnuncianteService {
         Anunciante aux = anuncianteRepository.findByEmail(objDto.getEmail());
         if (aux != null) {
             throw new ObjectNotFoundException(
-                "Email já existente");
+                    "Email já existente");
         }
 
     }
