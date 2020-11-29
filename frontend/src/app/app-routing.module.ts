@@ -29,6 +29,11 @@ export const routes: Routes = [
       import('./modules/login').then((m) => m.LoginModule),
   },
   {
+    path: 'singup',
+    loadChildren: () =>
+      import('./modules/singup/singup.module').then((m) => m.SingupModule),
+  },
+  {
     path: '**', component: Error404Component
   },
 ];
