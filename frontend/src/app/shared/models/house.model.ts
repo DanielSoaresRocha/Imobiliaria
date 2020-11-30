@@ -14,4 +14,13 @@ export class House {
     nome: string;
     valor: number;
     descricao: string;
+
+    constructor(metrosQuadrados?,qtdQuartos?, qtdBanheiros?, qtdVagasNaGaragem?,nome?, valor?){
+        this.metrosQuadrados = metrosQuadrados;
+        this.qtdQuartos = qtdQuartos;
+        this.qtdBanheiros = qtdBanheiros;
+        this.qtdVagasNaGaragem = qtdVagasNaGaragem;
+        this.nome = nome;
+        this.valor = valor;
+        }
 }
