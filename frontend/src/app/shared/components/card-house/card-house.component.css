@@ -2,41 +2,43 @@
   position: relative;
 }
 
-.containerCardHouse > img {
-  position: absolute;
-  right: -82px;
-  top: -12px;
-  animation-name: animate;
-  animation-iteration-count: infinite;
-  animation-duration: 0.5s;
-  -webkit-transition: all 0.9s ease;
-  -moz-transition: all 0.9s ease;
-  -o-transition: all 0.9s ease;
-  transition: all 0.9s ease;
-  animation-direction: alternate;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(20px);
-  }
-}
-
 .containerCardHouse .fieldset {
   display: flex;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   background-color: white;
   margin-bottom: 0.8rem;
-  max-width: 846px;
+  min-width: 846px;
 }
 
 .containerCardHouse .fieldset > img {
   width: 16.3rem;
   height: 11.8rem;
+}
+
+.containerCardHouse .fieldset .content legend .anunciante > span {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.7rem;
+  width: 100%;
+  min-width: 500px;
+}
+
+.containerCardHouse .fieldset .content legend .anunciante {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.containerCardHouse .fieldset .content legend .anunciante .acoes {
+  display: flex;
+}
+
+.containerCardHouse .acoes img {
+  margin-left: 20px;
+  cursor: pointer;
 }
 
 .containerCardHouse .fieldset .content {

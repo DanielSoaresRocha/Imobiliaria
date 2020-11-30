@@ -1,0 +1,47 @@
+.indexAnunciante {
+  padding: 1.87rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indexAnunciante .card {
+  background-color: #e5e5e5;
+  padding: 1.87rem;
+  max-width: 1300px;
+  min-width: 1289px;
+}
+
+.indexAnunciante .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.indexAnunciante .title a {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 22px;
+  color: #0075ff;
+  margin-left: 25px;
+}
+
+.indexAnunciante .title h1 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.indexAnunciante .card .list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}

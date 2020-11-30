@@ -9,6 +9,7 @@ import { PriceComponent } from './register-house/price/price.component';
 import { PhotosComponent } from './register-house/photos/photos.component';
 import { FinishComponent } from './register-house/finish/finish.component';
 import { SharedModule } from 'src/app/shared';
+import { AdvertsComponent } from './adverts/adverts.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SharedModule } from 'src/app/shared';
     PriceComponent,
     PhotosComponent,
     FinishComponent,
+    AdvertsComponent,
   ],
   imports: [
     CommonModule,

@@ -1,11 +1,10 @@
 <div class="containerCardHouse">
-    <img src="../../../../assets/icons/set.svg"/>
     <div class="fieldset">
         <img src="../../../../assets/casa.png" alt="Casa" />
     
         <div class="content">
             <legend>
-                <mat-form-field style="width: 100%;">
+                <mat-form-field style="width: 100%;" *ngIf="anunciante != true">
                     <mat-label>Coloque aqui qual será o título do anúncio</mat-label>
                     <input
                         [(ngModel)]="house.nome"
@@ -15,6 +14,13 @@
                         placeholder="Ex. Casa grande e mobilhada em barro nobre...">
                     <mat-hint align="end">{{message.value.length}} / 33</mat-hint>
                 </mat-form-field>
+                <div *ngIf="anunciante === true" class="anunciante">
+                    <span >{{house.nome}}</span>
+                    <div class="acoes">
+                        <img src="../../../../assets/icons/excluir.png"/>
+                        <img src="../../../../assets/icons/editar.png" />
+                    </div>
+                </div>
             </legend>
     
             <div class="cards">
@@ -36,7 +42,7 @@
                 </div>
             </div>
     
-            <span class="price">R$ {{house.valor}}</span>
+            <span class="price">{{formatValue(house.valor)}}</span>
         </div>
     </div>
 </div>
