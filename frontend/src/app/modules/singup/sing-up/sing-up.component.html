@@ -12,7 +12,10 @@
             <input matInput 
                    placeholder="Fulano de Sicrano" 
                    value=""
-                   required>
+                   required
+                   [(ngModel)]="advertiser.nome"
+                   name="Nome"
+                   >
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
@@ -21,7 +24,20 @@
                    placeholder="Exemplo@seuemail.com" 
                    type="email"
                    value=""
-                   required>
+                   required
+                   [(ngModel)]="advertiser.email"
+                   name="Email">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>CNPJ ou CPF</mat-label>
+            <input matInput 
+                   placeholder="Fulano de Sicrano" 
+                   value=""
+                   required
+                   [(ngModel)]="advertiser.cpfOuCnpj"
+                   name="CnpjCpf"
+                   >
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
@@ -30,21 +46,45 @@
                    placeholder="" 
                    type="password"
                    value=""
-                   required>
+                   required
+                   [(ngModel)]="advertiser.senha"
+                   name="Senha">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <mat-label>Telefone</mat-label>
+            <mat-label>Telefone 1</mat-label>
             <input matInput 
                    placeholder="84 9 1234-5678" 
                    type="tel"
                    pattern="[0-9]{2} [9]{1} [0-9]{4}-[0-9]{4}"
-                   required>
+                   required
+                   [(ngModel)]="advertiser.telefone1"
+                   name="Telefone 1">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Telefone 2</mat-label>
+            <input matInput 
+                   placeholder="84 9 1234-5678" 
+                   type="tel"
+                   pattern="[0-9]{2} [9]{1} [0-9]{4}-[0-9]{4}"
+                   [(ngModel)]="advertiser.telefone2"
+                   name="Telefone 2">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Telefone 3</mat-label>
+            <input matInput 
+                   placeholder="84 9 1234-5678" 
+                   type="tel"
+                   pattern="[0-9]{2} [9]{1} [0-9]{4}-[0-9]{4}"
+                   [(ngModel)]="advertiser.telefone3"
+                   name="Telefone 3">
           </mat-form-field>
 
           
         </div>
-        <button mat-raised-button><a [routerLink]="['/welcome']"></a>Cadastrar</button>
+        <button mat-raised-button (click)="register()">Cadastrar</button>
       </form>
 
       <div class="footer-box">
