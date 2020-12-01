@@ -15,7 +15,10 @@
             <input matInput 
                    placeholder="Exemplo@seuemail.com" 
                    type="email"
-                   value="">
+                   value=""
+                   [(ngModel)]="email"
+                   name="email"
+                   >
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
@@ -23,7 +26,10 @@
             <input matInput 
                    placeholder="" 
                    type="password"
-                   value="">
+                   value=""
+                   [(ngModel)]="password"
+                   name="senha"
+                   >
           </mat-form-field>
 
           
@@ -31,7 +37,7 @@
        
       </form>
 
-      <a [routerLink]="['/advertisement/client']"><button mat-raised-button>Acessar</button></a>
+      <a (click)="login()"><button mat-raised-button>Acessar</button></a>
 
       <div class="footer-box">
         <p>Ainda não é cadastrado? <a [routerLink]= "['/singup']">Cadastre-se</a></p>
