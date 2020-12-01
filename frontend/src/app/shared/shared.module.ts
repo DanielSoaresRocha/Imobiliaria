@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AdvertiserService, HouseService } from './services';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material
 import { MatInputModule } from '@angular/material/input';
@@ -22,6 +23,7 @@ import { SliderPhotosComponent } from './components/slider-photos/slider-photos.
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
@@ -33,6 +35,7 @@ import { SliderPhotosComponent } from './components/slider-photos/slider-photos.
     AdvertiserService
   ],
   exports:[
+    ReactiveFormsModule,
     FormsModule,
     MatInputModule,
     MatFormFieldModule,

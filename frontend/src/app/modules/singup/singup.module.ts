@@ -8,8 +8,8 @@ import { SingUpRoutingModule } from './singup-routing.module';
 @NgModule({
   declarations: [SingUpComponent],
   imports: [
-    CommonModule,
     SharedModule,
+    CommonModule,
     SingUpRoutingModule
   ]
 })
