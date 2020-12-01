@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { HouseService } from './services';
+import { AdvertiserService, HouseService } from './services';
 
 // Angular Material
 import { MatInputModule } from '@angular/material/input';
@@ -29,7 +29,8 @@ import { SliderPhotosComponent } from './components/slider-photos/slider-photos.
     MatSliderModule
   ],
   providers: [
-    HouseService
+    HouseService,
+    AdvertiserService
   ],
   exports:[
     FormsModule,
