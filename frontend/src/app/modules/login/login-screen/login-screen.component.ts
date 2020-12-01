@@ -22,7 +22,7 @@ export class LoginScreenComponent implements OnInit {
         this.router.navigate([`/advertisement/client`]);
         console.log(response)
       },
-      (error) => console.log(error)
+      (error) => alert("Login ou senha inválidos")
     )
   }
 
