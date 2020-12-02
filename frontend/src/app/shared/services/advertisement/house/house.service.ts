@@ -35,4 +35,8 @@ export class HouseService {
   findById(id: string){
     return this.httpClient.get<House>(`${this.BASE_URL}/${id}`);
   }
+
+  listByAdvertiser(id: string){
+    return this.httpClient.get<House[]>(`${this.BASE_URL}/anunciante/${id}`);
+  }
 }
