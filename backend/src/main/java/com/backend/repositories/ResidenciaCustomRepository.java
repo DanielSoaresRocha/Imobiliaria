@@ -1,11 +1,14 @@
 package com.backend.repositories;
 
+import com.backend.domain.Anunciante;
+import com.backend.domain.Produto;
 import com.backend.domain.Residencia;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ResidenciaCustomRepository {
@@ -90,4 +93,15 @@ public class ResidenciaCustomRepository {
         return q.getResultList();
     }
 
+
+
+    public Integer delete(Integer id_anunciante, Optional<Anunciante> id_produto) {
+        String query = "DELETE obj FROM Produto obj where obj.id = :id and obj.anunciante = :anunciante ";
+
+        TypedQuery<Produto> q = em.createQuery(query, Produto.class);
+            q.setParameter("id", id_produto);
+            q.setParameter("anunciante", id_anunciante);
+
+        return q.getFirstResult();
+    }
 }
