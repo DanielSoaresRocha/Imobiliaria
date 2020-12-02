@@ -64,4 +64,10 @@ public class ProdutoResource {
         List<Residencia> list = service.findFiltroResidencia(qtd_quartos,qtdBanheiros,qtdVagasNaGaragem,minValor,maxValor, minMetrosQuadrados, maxMetrosQuadrados);
         return ResponseEntity.ok().body(list);
     }
+
+    @GetMapping(value = "anunciante/{id}")
+    public ResponseEntity<?> findProdutoByAnunciante(@PathVariable Integer  id ) {
+        List<Produto> list = service.findProdutoByAnunciante(id);
+        return ResponseEntity.ok().body(list);
+    }
 }
