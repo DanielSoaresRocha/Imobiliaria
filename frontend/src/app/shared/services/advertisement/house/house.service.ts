@@ -29,8 +29,8 @@ export class HouseService {
   }
 
   create(house : House):Observable<any>{
-    let headers = new HttpHeaders();
-    headers = headers.set('token', localStorage.getItem('token'));
+    let headers = new HttpHeaders()
+      .append('Authorization', localStorage.getItem('token'))
 
     return this.httpClient.post(`${this.BASE_URL}/residencia`, house, {
       headers: headers
