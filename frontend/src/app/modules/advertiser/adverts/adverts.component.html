@@ -2,15 +2,14 @@
     <div class="card">
         <div class="title">
             <h1>Meus anúncios</h1>
-            <a>Anunciar imóvel</a>
+            <a [routerLink]= "['/advertiser/register-house']">Anunciar imóvel</a>
         </div>
         <hr style="border: 1px solid black;"/>
         
         <div class="list">
+            <ng-container *ngFor="let house of houses">
             <app-card-house [house]="house" [anunciante]="true"></app-card-house>
-            <app-card-house [house]="house" [anunciante]="true"></app-card-house>
-            <app-card-house [house]="house" [anunciante]="true"></app-card-house>
-            <app-card-house [house]="house" [anunciante]="true"></app-card-house>
+            </ng-container>
         </div>
 
     </div>
