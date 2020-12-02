@@ -18,7 +18,6 @@ export class FinishComponent implements OnInit {
   }
 
   finish(){
-    this.stageEmit.emit({stage: 5});
     this.finishEmit.emit();
   }
   

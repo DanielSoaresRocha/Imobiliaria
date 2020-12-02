@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Advertiser } from '../../../models/advertiser.model'
 
@@ -12,9 +12,13 @@ export class AdvertiserService {
   constructor(private httpClient: HttpClient) { }
 
   login(email, password): Observable<any>{
-    return this.httpClient.post(`${this.BASE_URL}/login`, {
+    let body = {
       email: email,
-      senha: password
+      senha: password,
+    }
+
+    return this.httpClient.post(`${this.BASE_URL}/login`, body, {
+      observe: 'response'
     });
   }
 

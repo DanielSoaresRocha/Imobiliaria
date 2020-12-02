@@ -23,7 +23,8 @@ export class LoginScreenComponent implements OnInit {
     this.advertiserService.login(this.email.value, this.senha.value).subscribe(
       (response) => {
         this.router.navigate([`/advertiser/index`]);
-        console.log(response)
+        let token = response.headers.get("Authorization")
+        localStorage.setItem('token', token);
       },
       (error) => alert("Login ou senha inválidos")
     )
