@@ -1,5 +1,6 @@
 package com.backend.services;
 
+import com.backend.domain.Anunciante;
 import com.backend.domain.Automovel;
 import com.backend.domain.Produto;
 import com.backend.domain.Residencia;
@@ -7,8 +8,10 @@ import com.backend.repositories.AutomovelRepository;
 import com.backend.repositories.ProdutoRepository;
 import com.backend.repositories.ResidenciaCustomRepository;
 import com.backend.repositories.ResidenciaRepository;
+import com.backend.services.exceptions.DataIntegrityException;
 import com.backend.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
