@@ -25,4 +25,11 @@ export class FinishComponent implements OnInit {
     this.stageEmit.emit({stage: 3});
   }
 
+  formatValue(value: number): string{
+    if(value != null)
+      return value.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+    else
+      return ''
+  }
+
 }

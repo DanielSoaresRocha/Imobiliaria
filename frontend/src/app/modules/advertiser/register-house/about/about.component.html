@@ -14,6 +14,7 @@
                     value="94043"
                     name="cep"
                     required
+                    (blur)="searchCep(cep.value)"
                     >
                 <mat-hint align="end">{{cep.value.length}} / 9</mat-hint>
             </mat-form-field>

@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AdvertiserService, HouseService } from './services';
+import { CepService } from './services/utils'
 import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material
@@ -32,7 +33,8 @@ import { SliderPhotosComponent } from './components/slider-photos/slider-photos.
   ],
   providers: [
     HouseService,
-    AdvertiserService
+    AdvertiserService,
+    CepService
   ],
   exports:[
     ReactiveFormsModule,

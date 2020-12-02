@@ -66,19 +66,20 @@
         <div class="fields">
             <div class="field">
                 <h5>Disponível para</h5>
-                <span>Venda</span>
+                <span *ngIf="house.isVenda" >Venda</span>
+                <span *ngIf="!house.isVenda">Aluguel</span>
             </div>
             <div class="field">
                 <h5>Valor do imóvel</h5>
-                <span>R$ {{house.valor}}.00</span>
+                <span>{{formatValue(house.valor)}}</span>
             </div>
             <div class="field">
                 <h5>IPTU</h5>
-                <span>R$ -</span>
+                <span>{{formatValue(house.valorIptu)}}</span>
             </div>
             <div class="field">
                 <h5>Condominio</h5>
-                <span>R$ -</span>
+                <span>{{formatValue(house.valorCondominio)}}</span>
             </div>
         </div>
     </div>

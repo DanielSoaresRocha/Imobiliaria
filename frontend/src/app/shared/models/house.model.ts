@@ -17,7 +17,7 @@ export class House {
     nome: string;
     valor: number;
     descricao: string;
-    isVenda: string;
+    isVenda: boolean;
     valorCondominio: number;
     valorIptu: number;
     anunciante: Advertiser;
