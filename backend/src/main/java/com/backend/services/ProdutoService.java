@@ -46,6 +46,7 @@ public class ProdutoService {
 
     public Produto insert(Produto obj) {
         obj.setId(null);
+        obj.setAnunciante(anuncianteService.findByEmail(anuncianteService.buscarAnucienteLogado()));
         return repo.save(obj);
     }
 
@@ -62,5 +63,7 @@ public class ProdutoService {
         Optional<Anunciante> obj = anuncianteService.find(id);
         return repo.findByAnunciante(obj);
     }
+
+
 
 }
