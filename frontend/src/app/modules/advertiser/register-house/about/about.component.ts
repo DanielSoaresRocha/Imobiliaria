@@ -24,4 +24,5 @@ export class AboutComponent implements OnInit {
     this.router.navigate(['/']);
     this.stageEmit.emit({"stage": 0});
   }
+
 }

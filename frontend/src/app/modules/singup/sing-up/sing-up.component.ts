@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdvertiserService } from 'src/app/shared/services';
-import { Advertiser } from '../../../shared/models/advertiser.model'
+import { Advertiser } from '../../../shared/models/advertiser.model';
 import { Validacoes } from '../../../shared/utils/validacoes'
 
 @Component({
@@ -23,6 +23,14 @@ export class SingUpComponent implements OnInit {
   }
 
   register(){
+    this.advertiser.nome = this.nome.value;
+    this.advertiser.senha = this.senha.value;
+    this.advertiser.email = this.email.value;
+    this.advertiser.telefone1 = this.telefone1.value;
+    this.advertiser.telefone2 = this.telefone2.value;
+    this.advertiser.telefone3 = this.telefone3.value;
+    this.advertiser.cpfOuCnpj = this.cnpjCpf.value;
+
     this.advertiserService.register(this.advertiser).subscribe(
       response => {
         alert("Cadastro realizado com sucesso!!")
@@ -138,5 +146,13 @@ export class SingUpComponent implements OnInit {
 
   get telefone1() {
     return this.formularioDeUsuario.get('telefone1');
+  }
+
+  get telefone2() {
+    return this.formularioDeUsuario.get('telefone2');
+  }
+
+  get telefone3() {
+    return this.formularioDeUsuario.get('telefone3');
   }
 }
