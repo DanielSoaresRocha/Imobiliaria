@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdvertiserService } from 'src/app/shared/services';
-import { Advertiser } from '../../../shared/models/advertiser.model'
+import { Advertiser } from '../../../shared/models/advertiser.model';
 import { Validacoes } from '../../../shared/utils/validacoes'
 
 @Component({

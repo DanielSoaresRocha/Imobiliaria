@@ -1,7 +1,7 @@
 <div class="container-login">
   <div class="backdrop">
     <div class="box-login">
-      <form class='example-form'>
+      <form class='example-form' [formGroup]="loginDeUsuario" (ngSubmit)="login()">
         <span>
           Bem-vindo
         </span>
@@ -12,13 +12,15 @@
         <div class="inputs">
           <mat-form-field class="example-full-width">
             <mat-label>Email</mat-label>
-            <input matInput 
+              <input matInput 
                    placeholder="Exemplo@seuemail.com" 
                    type="email"
                    value=""
-                   [(ngModel)]="email"
                    name="email"
+                   required
+                   formControlName="email"
                    >
+                   <mat-error *ngIf='email.invalid'>{{errorMessageEmail()}}</mat-error>
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
@@ -27,17 +29,19 @@
                    placeholder="" 
                    type="password"
                    value=""
-                   [(ngModel)]="password"
                    name="senha"
+                   required
+                   formControlName="senha"
                    >
+                  <mat-error *ngIf='senha.invalid'>{{errorMessageSenha()}}</mat-error>
           </mat-form-field>
 
           
         </div>
-       
+        <button mat-raised-button type="submit" >Acessar</button>
       </form>
 
-      <a (click)="login()"><button mat-raised-button>Acessar</button></a>
+      
 
       <div class="footer-box">
         <p>Ainda não é cadastrado? <a [routerLink]= "['/singup']">Cadastre-se</a></p>
