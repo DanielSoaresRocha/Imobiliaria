@@ -70,4 +70,11 @@ public class ProdutoResource {
         List<Produto> list = service.findProdutoByAnunciante(id);
         return ResponseEntity.ok().body(list);
     }
+
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        service.deleteProdutoByAnunciante(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
