@@ -64,6 +64,10 @@ public class ProdutoService {
         return repo.findByAnunciante(obj);
     }
 
+    public void deleteProdutoByAnunciante(Integer id) {
+        findProdutoById(id);
+        repo.deleteById(id);
+    }
 
 
 }
