@@ -8,7 +8,7 @@
         
         <div class="list">
             <ng-container *ngFor="let house of houses">
-            <app-card-house [house]="house" [anunciante]="true"></app-card-house>
+            <app-card-house [house]="house" [anunciante]="true" (click)="houseDetails(house)"></app-card-house>
             </ng-container>
         </div>
 
