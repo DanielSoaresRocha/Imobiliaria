@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="priceForm">
     <section>
         <h3>Valor do imóvel</h3>
 
@@ -17,21 +17,23 @@
                 <input 
                     matInput type="number" 
                     class="example-right-align"
-                    [(ngModel)]="house.valor"
                     name="preço"
+                    required
+                    formControlName="valor"
                     >
                 <span matPrefix>R$&nbsp;</span>
                 <span matSuffix>.00</span>
+                <mat-error *ngIf="valor.invalid">{{errorMessageValor()}}</mat-error>
             </mat-form-field>
         </div>
 
         <div style="margin-top: 40px; display: flex;">
             <div style="min-width: 250px;">
                 <div>
-                    <mat-checkbox name="condominio" [(ngModel)]="checkCondominio">Têm condominio</mat-checkbox>
+                    <mat-checkbox name="condominio">Têm condominio</mat-checkbox>
                 </div>
                 
-                <div *ngIf="checkCondominio" style="margin-top: 20px;">
+                <div style="margin-top: 20px;">
                     <mat-form-field appearance="fill">
                         <mat-label>Preço</mat-label>
                         <input matInput type="number" class="example-right-align">
@@ -42,10 +44,10 @@
             </div>
             <div style="min-width: 250px;">
                 <div>
-                    <mat-checkbox name="IPTU" [(ngModel)]="checkIPTU">Têm IPTU</mat-checkbox>
+                    <mat-checkbox name="IPTU">Têm IPTU</mat-checkbox>
                 </div>
 
-                <div *ngIf="checkIPTU" style="margin-top: 20px;">
+                <div style="margin-top: 20px;">
                     <mat-form-field appearance="fill">
                         <mat-label>Preço</mat-label>
                         <input matInput type="number" class="example-right-align">
@@ -61,5 +63,5 @@
 
 <div class="group-buttons">
     <button (click)="back()">Voltar</button>
-    <button (click)="goToPhotos()">Avançar</button>
+    <button (click)="goToPhotos()" [disabled]="!priceForm.valid">Avançar</button>
 </div>

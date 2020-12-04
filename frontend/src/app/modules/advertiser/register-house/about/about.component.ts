@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from "@angular/router";
 import { House } from 'src/app/shared/models/house.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Validacoes } from 'src/app/shared/utils/validacoes';
 
 @Component({
   selector: 'app-about',
@@ -36,10 +35,7 @@ export class AboutComponent implements OnInit {
     this.house.qtdVagasNaGaragem = this.qtdVagasNaGaragem.value;
     this.house.descricao = this.descricao.value;
 
-
     this.stageEmit.emit({"stage": 2});
-
-
   }
 
   cancel(){
@@ -179,13 +175,6 @@ export class AboutComponent implements OnInit {
       return 'Vagas na garagem é requerido'
     }
   }
-
-
-
-
-
-
-
 
 
   get cep(){

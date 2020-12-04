@@ -4,16 +4,21 @@
     
         <div class="content">
             <legend>
-                <mat-form-field style="width: 100%;" *ngIf="anunciante != true">
-                    <mat-label>Coloque aqui qual será o título do anúncio</mat-label>
-                    <input
-                        [(ngModel)]="house.nome"
-                        matInput
-                        #message
-                        maxlength="33"
-                        placeholder="Ex. Casa grande e mobilhada em barro nobre...">
-                    <mat-hint align="end">{{message.value.length}} / 33</mat-hint>
-                </mat-form-field>
+                <form [formGroup]='titleForm'>
+                    <mat-form-field style="width: 100%;" *ngIf="anunciante != true">
+                        <mat-label>Coloque aqui qual será o título do anúncio</mat-label>
+                        <input
+                            matInput
+                            #message
+                            maxlength="50"
+                            placeholder="Ex. Casa grande e mobilhada em barro nobre..."
+                            required
+                            formControlName="nome">
+                            <mat-error *ngIf="nome.invalid">{{errorMessageTitulo()}}</mat-error>
+                        <mat-hint align="end">{{message.value.length}} / 50</mat-hint>
+                    </mat-form-field>
+                </form>
+                
                 <div *ngIf="anunciante === true" class="anunciante">
                     <span >{{house.nome}}</span>
                     <div class="acoes">
