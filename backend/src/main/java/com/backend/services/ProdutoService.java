@@ -1,14 +1,14 @@
 package com.backend.services;
 
+import com.backend.domain.Anunciante;
 import com.backend.domain.Automovel;
 import com.backend.domain.Produto;
 import com.backend.domain.Residencia;
-import com.backend.repositories.AutomovelRepository;
-import com.backend.repositories.ProdutoRepository;
-import com.backend.repositories.ResidenciaCustomRepository;
-import com.backend.repositories.ResidenciaRepository;
+import com.backend.repositories.*;
+import com.backend.services.exceptions.DataIntegrityException;
 import com.backend.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,6 +29,9 @@ public class ProdutoService {
     @Autowired
     private ResidenciaCustomRepository residenciaCustomRepository;
 
+    @Autowired
+    private AnuncianteService anuncianteService;
+
     public List<Produto> findAll() {
         return repo.findAll();
     }
@@ -43,6 +46,7 @@ public class ProdutoService {
 
     public Produto insert(Produto obj) {
         obj.setId(null);
+        obj.setAnunciante(anuncianteService.findByEmail(anuncianteService.buscarAnucienteLogado()));
         return repo.save(obj);
     }
 
@@ -54,5 +58,12 @@ public class ProdutoService {
     public List<Residencia> findFiltroResidencia(Integer qtdQuartos, Integer qtdBanheiros, Integer qtdVagasNaGaragem,Double minValor, Double maxValor, Double minMetrosQuadrados, Double maxMetrosQuadrados){
         return residenciaCustomRepository.find(qtdQuartos,qtdBanheiros,qtdVagasNaGaragem,minValor,maxValor, minMetrosQuadrados, maxMetrosQuadrados);
     }
+
+    public List<Produto> findProdutoByAnunciante(Integer id) {
+        Optional<Anunciante> obj = anuncianteService.find(id);
+        return repo.findByAnunciante(obj);
+    }
+
+
 
 }

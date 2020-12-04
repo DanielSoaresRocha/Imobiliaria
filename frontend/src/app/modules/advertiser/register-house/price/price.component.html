@@ -36,7 +36,12 @@
                 <div style="margin-top: 20px;">
                     <mat-form-field appearance="fill">
                         <mat-label>Preço</mat-label>
-                        <input matInput type="number" class="example-right-align">
+                        <input
+                            matInput
+                            type="number"
+                            class="example-right-align"
+                            [(ngModel)]="house.valorCondominio"
+                            name="Valor condominio">
                         <span matPrefix>R$&nbsp;</span>
                         <span matSuffix>.00</span>
                     </mat-form-field>
@@ -50,7 +55,12 @@
                 <div style="margin-top: 20px;">
                     <mat-form-field appearance="fill">
                         <mat-label>Preço</mat-label>
-                        <input matInput type="number" class="example-right-align">
+                        <input 
+                            matInput 
+                            type="number"
+                            class="example-right-align"
+                            [(ngModel)]="house.valorIptu"
+                            name="Valor IPTU">
                         <span matPrefix>R$&nbsp;</span>
                         <span matSuffix>.00</span>
                     </mat-form-field>

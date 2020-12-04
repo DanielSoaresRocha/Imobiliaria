@@ -21,7 +21,6 @@ export class FinishComponent implements OnInit {
   }
 
   finish(){
-    this.stageEmit.emit({stage: 5});
     this.finishEmit.emit();
   
     this.house.nome = this.nome.value;
@@ -43,4 +42,12 @@ export class FinishComponent implements OnInit {
   get nome(){
     return this.finishForm.get('nome');
   }
+
+  formatValue(value: number): string{
+    if(value != null)
+      return value.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+    else
+      return ''
+  }
+
 }

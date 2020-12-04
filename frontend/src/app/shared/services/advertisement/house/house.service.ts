@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { House } from '../../../models/house.model'
 import { HouseFilter } from '../../../models/house-filter.model'
@@ -29,10 +29,19 @@ export class HouseService {
   }
 
   create(house : House):Observable<any>{
-    return this.httpClient.post(`${this.BASE_URL}/residencia`, house);
+    let headers = new HttpHeaders()
+      .append('Authorization', localStorage.getItem('token'))
+
+    return this.httpClient.post(`${this.BASE_URL}/residencia`, house, {
+      headers: headers
+    });
   }
 
   findById(id: string){
     return this.httpClient.get<House>(`${this.BASE_URL}/${id}`);
+  }
+
+  listByAdvertiser(id: string){
+    return this.httpClient.get<House[]>(`${this.BASE_URL}/anunciante/${id}`);
   }
 }

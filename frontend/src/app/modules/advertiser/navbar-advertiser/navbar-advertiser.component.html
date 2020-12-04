@@ -4,8 +4,8 @@
         <header>
             <div class="links">
             <img (click)="backToHome()" src="../../../assets/logo.png" alt="logo" />
-                <a href="">Meus anúncios</a>
-                <a href="">Anunciar</a>
+                <a [routerLink]="['/advertiser/index']">Meus anúncios</a>
+                <a [routerLink]="['/advertiser/register-house']">Anunciar</a>
             </div>
             <a [routerLink]="['/']" id="logout">sair</a>
         </header>

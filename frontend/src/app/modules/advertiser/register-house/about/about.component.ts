@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from "@angular/router";
 import { House } from 'src/app/shared/models/house.model';
+import { CepService } from '../../../../shared/services/utils'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -12,16 +13,15 @@ export class AboutComponent implements OnInit {
   @Output() stageEmit = new EventEmitter();
   @Input() house: House;
 
-  aboutForm: FormGroup;
+  constructor(private router: Router, private cepService: CepService, private fb: FormBuilder) { }
 
-  constructor(private router: Router, private fb: FormBuilder ) { }
+  aboutForm: FormGroup;
 
   ngOnInit(): void {
     this.createAboutForm();
   }
 
   goToPrice() {
-
     this.house.cep = this.cep.value;
     this.house.estado = this.estado.value;
     this.house.cidade = this.cidade.value;
@@ -41,6 +41,40 @@ export class AboutComponent implements OnInit {
   cancel(){
     this.router.navigate(['/']);
     this.stageEmit.emit({"stage": 0});
+  }
+
+  searchCep(valor){
+    let cep = valor.replace(/\D/g, '');
+
+     if (cep != "") {
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
+
+        if(validacep.test(cep)) {
+          this.bairro.setValue('Carregando...')
+          this.cidade.setValue('Carregando...')
+          this.rua.setValue('Carregando...')
+          this.estado.setValue('Carregando...')
+
+          this.cepService.get(cep).subscribe(
+            response => {
+              this.bairro.setValue(response.bairro);
+              this.cidade.setValue(response.localidade);
+              this.rua.setValue(response.logradouro);
+              this.estado.setValue(response.uf);
+
+              if(response.error){
+                alert('O cep informado não existe')
+              }
+            },
+            error => {
+              alert('Ocorreu um erro ao tentar buscar este cep')
+            }
+          )
+        }else{
+          alert('Verifique se o cep é válido')
+        }
+     }
   }
 
   createAboutForm(){

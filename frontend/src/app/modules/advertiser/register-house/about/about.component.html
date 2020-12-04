@@ -13,6 +13,7 @@
                     value="94043"
                     name="cep"
                     required
+                    (blur)="searchCep(cepCode.value)"
                     formControlName="cep"
                     >
                 <mat-error *ngIf="cep.invalid">{{errorMessageCep()}}</mat-error>

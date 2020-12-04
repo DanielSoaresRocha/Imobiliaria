@@ -25,8 +25,11 @@ export class RegisterHouseComponent implements OnInit {
 
   finish(){
     this.houseService.create(this.house).subscribe(
-      x => this.router.navigate(['/advertisement/client']),
-      err => console.error('Deu errado' + err)
+      response => this.router.navigate(['/advertiser/index']),
+      err => {
+        console.log(err);
+        alert('Não foi possível cadastrar');
+      }
     )
   }
 

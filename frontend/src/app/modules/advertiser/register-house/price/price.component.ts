@@ -25,6 +25,13 @@ export class PriceComponent implements OnInit {
   }
 
   goToPhotos(){
+    this.house.isVenda = this.isVenda;
+
+    if(!this.checkCondominio)
+      this.house.valorCondominio = 0;
+    if(!this.checkIPTU)
+      this.house.valorIptu = 0;
+
     this.stageEmit.emit({stage: 3});
 
     this.house.valor = this.valor.value;

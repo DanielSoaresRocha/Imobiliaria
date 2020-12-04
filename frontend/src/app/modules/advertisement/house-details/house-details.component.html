@@ -51,7 +51,9 @@
             <div class="card">
                 <div class="price">
                     <div class="buy">
-                        <span style="font-weight: bold; text-transform: uppercase;">Compra</span>
+                        <span *ngIf="house.isVenda" style="font-weight: bold; text-transform: uppercase;">Compra</span>
+                        <span *ngIf="!house.isVenda" style="font-weight: bold; text-transform: uppercase;">Aluguel</span>
+                        
                         <div style="margin-top: 20px;">
                             <span class="price">{{formatValue(house.valor)}}</span>
                         </div>
@@ -60,11 +62,11 @@
                     <div class="rate">
                         <div>
                             <span>Taxa de condômino</span>
-                            <span style="color: #000000;">R$ 2.055</span>
+                            <span style="color: #000000;">{{formatValue(house.valorCondominio)}}</span>
                         </div>
                         <div style="margin-top: 20px">
                             <span>IPTU</span>
-                            <span style="color: #000000;">R$ 2.055</span>
+                            <span style="color: #000000;">{{formatValue(house.valorIptu)}}</span>
                         </div>
                     </div>
                 </div>
@@ -73,7 +75,7 @@
 
                 <div class="advertiser">
                     <span>Anunciante</span>
-                    <span style="color: #000000;">Daniel Soares</span>
+                    <span style="color: #000000;">{{house.anunciante.nome}}</span>
                 </div>
 
                 <div class="group-buttons">
