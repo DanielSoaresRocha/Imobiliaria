@@ -88,10 +88,10 @@
 <h1 style="margin-top: 40px;">Preview do anúncio</h1>
 
 <div style="margin-top: 60px; display: flex; justify-content: center;">
-    <app-card-house [house]="house"></app-card-house>
+    <app-card-house [house]="house" (change)="changeName($event)"></app-card-house>
 </div>
 
 <div class="group-buttons">
     <button (click)="back()">voltar</button>
-    <button (click)="finish()">Finalizar</button>
+    <button (click)="finish()" [disabled]="disableButton" >Finalizar</button>
 </div>

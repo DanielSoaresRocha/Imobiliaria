@@ -13,7 +13,9 @@
                             maxlength="50"
                             placeholder="Ex. Casa grande e mobilhada em barro nobre..."
                             required
-                            formControlName="nome">
+                            formControlName="nome"
+                            (blur)="changeName()"
+                            >
                             <mat-error *ngIf="nome.invalid">{{errorMessageTitulo()}}</mat-error>
                         <mat-hint align="end">{{message.value.length}} / 50</mat-hint>
                     </mat-form-field>

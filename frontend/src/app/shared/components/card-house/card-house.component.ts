@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { House } from '../../models/house.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -13,6 +13,7 @@ export class CardHouseComponent implements OnInit {
 
   @Input() house: House;
   @Input() anunciante: boolean = false;
+  @Output() change = new EventEmitter();
 
   constructor(private fb: FormBuilder) { }
 
@@ -45,6 +46,13 @@ export class CardHouseComponent implements OnInit {
     }else{
       this.house.nome = this.nome.value;
     }
+  }
+
+  changeName(){
+    this.change.emit({
+      name: this.nome.value,
+      disabled: this.nome.invalid
+    })
   }
 
   get nome(){

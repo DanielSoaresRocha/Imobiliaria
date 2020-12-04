@@ -24,8 +24,18 @@ export class PriceComponent implements OnInit {
     this.createPriceForm();
   }
 
+  changeCondominio(){
+    this.checkCondominio = !this.checkCondominio
+  }
+
+  changeIPTU(){
+    this.checkIPTU = !this.checkIPTU
+  }
+
   goToPhotos(){
     this.house.isVenda = this.isVenda;
+    this.house.valorIptu = this.iptu.value;
+    this.house.valorCondominio = this.condominio.value;
 
     if(!this.checkCondominio)
       this.house.valorCondominio = 0;
@@ -52,6 +62,12 @@ export class PriceComponent implements OnInit {
         Validators.compose([
           Validators.required
         ])
+      ],
+      iptu:[
+        ''
+      ],
+      condominio:[
+        ''
       ]
     })
   }
@@ -64,6 +80,14 @@ export class PriceComponent implements OnInit {
 
   get valor(){
     return this.priceForm.get('valor');
+  }
+
+  get condominio(){
+    return this.priceForm.get('condominio');
+  }
+
+  get iptu(){
+    return this.priceForm.get('iptu');
   }
 
 }

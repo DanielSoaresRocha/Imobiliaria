@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { House } from 'src/app/shared/models/house.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-finish',
   templateUrl: './finish.component.html',
@@ -11,36 +10,19 @@ export class FinishComponent implements OnInit {
   @Output() stageEmit = new EventEmitter();
   @Output() finishEmit = new EventEmitter();
   @Input() house: House;
-
-  finishForm: FormGroup;
+  disableButton = true;
   
-  constructor(private router: Router, private fb: FormBuilder) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.createFinishForm();
   }
 
   finish(){
-    this.finishEmit.emit();
-  
-    this.house.nome = this.nome.value;
-    
+    this.finishEmit.emit(); 
   }
   
   back(){
     this.stageEmit.emit({stage: 3});
-  }
-
-  createFinishForm(){
-    this.finishForm = this.fb.group({
-      nome: [
-        '',
-      ]
-    })
-  }
-
-  get nome(){
-    return this.finishForm.get('nome');
   }
 
   formatValue(value: number): string{
@@ -48,6 +30,12 @@ export class FinishComponent implements OnInit {
       return value.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     else
       return ''
+  }
+
+  changeName(value:any){
+    console.log(this.house);
+    this.house.nome = value.name;
+    this.disableButton = value.disabled;
   }
 
 }
