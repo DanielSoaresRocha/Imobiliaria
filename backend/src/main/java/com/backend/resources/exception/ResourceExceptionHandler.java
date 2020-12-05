@@ -2,6 +2,7 @@ package com.backend.resources.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.backend.services.exceptions.AuthorizationException;
 import com.backend.services.exceptions.DataIntegrityException;
 import com.backend.services.exceptions.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -38,6 +39,12 @@ public class ResourceExceptionHandler {
             err.addError(x.getField(), x.getDefaultMessage());
         }
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(err);
+    }
+
+    @ExceptionHandler(AuthorizationException.class)
+    public ResponseEntity<StandardError> authorization(AuthorizationException e, HttpServletRequest request) {
+        StandardError err = new StandardError(HttpStatus.FORBIDDEN.value(), e.getMessage(), System.currentTimeMillis());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(err);
     }
 
 
