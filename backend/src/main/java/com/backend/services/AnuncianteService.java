@@ -1,11 +1,14 @@
 package com.backend.services;
 
 import com.backend.domain.Anunciante;
+import com.backend.domain.enums.Perfil;
 import com.backend.domain.enums.TipoCliente;
 import com.backend.dto.AnuncianteDTO;
 import com.backend.dto.AnuncianteNewDTO;
 import com.backend.repositories.AnuncianteRepository;
 import com.backend.resources.exception.FieldMessage;
+import com.backend.security.UserSS;
+import com.backend.services.exceptions.AuthorizationException;
 import com.backend.services.exceptions.DataIntegrityException;
 import com.backend.services.exceptions.ObjectNotFoundException;
 import com.backend.services.validation.utils.BR;
@@ -30,6 +33,10 @@ public class AnuncianteService {
 
 
     public Optional<Anunciante> find(Integer id) {
+        UserSS user = UserService.authenticated();
+        if (user==null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+            throw new AuthorizationException("Acesso negado");
+        }
 
         Optional<Anunciante> obj = anuncianteRepository.findById(id);
         if (!obj.isPresent()) {
