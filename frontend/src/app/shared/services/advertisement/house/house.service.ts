@@ -42,6 +42,11 @@ export class HouseService {
   }
 
   listByAdvertiser(id: string){
-    return this.httpClient.get<House[]>(`${this.BASE_URL}/anunciante/${id}`);
+    let headers = new HttpHeaders()
+      .append('Authorization', localStorage.getItem('token'))
+
+    return this.httpClient.get<House[]>(`${this.BASE_URL}/anunciante/${id}`,{
+      headers: headers
+    });
   }
 }
