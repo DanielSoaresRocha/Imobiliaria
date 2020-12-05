@@ -69,5 +69,10 @@ public class ProdutoService {
         repo.deleteById(id);
     }
 
+    public Residencia update(Residencia obj) {
+        findProdutoById(obj.getId());
+        return repo.save(obj);
+    }
+
 
 }
