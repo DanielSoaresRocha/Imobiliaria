@@ -41,7 +41,9 @@
                             type="number"
                             class="example-right-align"
                             name="Valor condominio"
+                            required
                             formControlName="condominio">
+                            <mat-error *ngIF=" checkCondominio.true && condominio.invalid">{{errorMessageCondominio()}}</mat-error>
                         <span matPrefix>R$&nbsp;</span>
                         <span matSuffix>.00</span>
                     </mat-form-field>
@@ -60,7 +62,9 @@
                             type="number"
                             class="example-right-align"
                             name="Valor IPTU"
+                            required
                             formControlName="iptu">
+                            <mat-error *ngIF=" checkIPTU.true && iptu.invalid">{{errorMessageIPTU()}}</mat-error>
                         <span matPrefix>R$&nbsp;</span>
                         <span matSuffix>.00</span>
                     </mat-form-field>
