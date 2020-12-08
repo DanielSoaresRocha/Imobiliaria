@@ -95,6 +95,7 @@
                     maxlength="4"
                     placeholder="Metros quadrados"
                     name="metros quadrados"
+                    type="number"
                     required
                     formControlName="metrosQuadrados">
                     <mat-error *ngIf="metrosQuadrados.invalid">{{errorMessageMetrosQuadrados()}}</mat-error>
@@ -106,6 +107,7 @@
                     maxlength="2"
                     placeholder="Quartos"
                     name="quantidade de quartos"
+                    type="number"
                     required
                     formControlName="qtdQuartos">
                     <mat-error *ngIf='qtdQuartos.invalid'>{{errorMessageQuartos()}}</mat-error>
@@ -116,6 +118,7 @@
                 <input matInput
                     placeholder="Banheiros"
                     name="quantidade de banheiros"
+                    type="number"
                     required
                     formControlName="qtdBanheiros">
                     <mat-error *ngIf='qtdBanheiros.invalid'>{{errorMessageBanheiros()}}</mat-error>
@@ -127,6 +130,7 @@
                     maxlength="2"
                     placeholder="Vagas na garagem"
                     name="quantidade de vagas" 
+                    type="number"
                     required
                     formControlName="qtdVagasNaGaragem">
                     <mat-error *ngIf='qtdVagasNaGaragem.invalid'>{{errorMessageGarage()}}</mat-error>
@@ -138,6 +142,7 @@
                     #description
                     maxlength="1000"
                     placeholder="Descrição completa"
+                    type="number"
                     name="descrição"
                     formControlName="descricao"></textarea>
                     <mat-hint align="end">{{description.value.length}} / 1000</mat-hint>

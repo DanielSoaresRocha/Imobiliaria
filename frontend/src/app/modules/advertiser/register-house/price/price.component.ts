@@ -88,7 +88,7 @@ export class PriceComponent implements OnInit {
         ])
       ],
       iptu:[
-        ''
+        '',
       ],
       condominio:[
         ''
@@ -99,6 +99,17 @@ export class PriceComponent implements OnInit {
   errorMessageValor(){
     if(this.valor.hasError('required')) {
       return 'Valor do imóvel deve ser inserido'
+    }
+  }
+
+  errorMessageCondominio(){
+    if(this.condominio.hasError('required')){
+      return "Insira o valor do Condominio"
+    }
+  }
+  errorMessageIPTU(){
+    if(this.iptu.hasError('required')){
+      return 'Insira o valor do IPTU'
     }
   }
 
