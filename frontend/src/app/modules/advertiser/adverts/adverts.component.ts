@@ -14,14 +14,35 @@ export class AdvertsComponent implements OnInit {
   constructor(private houseService: HouseService, private router: Router) { }
 
   ngOnInit(): void {
-    this.houseService.listByAdvertiser("2").subscribe(
-      reponse => this.houses = reponse,
-      error => alert('Ocorreu um erro')
-    )
+    this.listHouses();
   }
 
   houseDetails(house: House): void {
     this.router.navigate([`/advertisement/house-details`, house.id]);
+  }
+
+  deleteHouse(id: string){
+    let del = confirm("Deseja deleter esta casa?");
+    if (del == true){
+      this.houseService.delete(id).subscribe(
+        response => {
+          alert('Casa deletada com sucesso!')
+          this.listHouses();
+        },
+        error => alert('Não foi possível deletar esta casa')
+      )
+    }
+  }
+
+  editHouse(house: House){
+    this.router.navigate([`/advertiser/register-house`, house.id]);
+  }
+
+  listHouses(){
+    this.houseService.listByAdvertiser("2").subscribe(
+      reponse => this.houses = reponse,
+      error => alert('Ocorreu um erro')
+    )
   }
 
 }

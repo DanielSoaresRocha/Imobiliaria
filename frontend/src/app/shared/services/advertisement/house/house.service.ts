@@ -49,4 +49,14 @@ export class HouseService {
       headers: headers
     });
   }
+
+  delete(id: string){
+    let headers = new HttpHeaders()
+      .append('Authorization', localStorage.getItem('token'))
+
+    return this.httpClient.delete(`${this.BASE_URL}/${id}`, {
+      headers: headers
+    })
+    //http://localhost:8080/produtos/{id}
+  }
 }

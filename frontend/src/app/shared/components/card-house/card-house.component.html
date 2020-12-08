@@ -5,7 +5,7 @@
         <div class="content">
             <legend>
                 <form [formGroup]='titleForm'>
-                    <mat-form-field style="width: 100%;" *ngIf="anunciante != true">
+                    <mat-form-field style="width: 100%;" *ngIf="anunciante == true">
                         <mat-label>Coloque aqui qual será o título do anúncio</mat-label>
                         <input
                             matInput
@@ -21,11 +21,11 @@
                     </mat-form-field>
                 </form>
                 
-                <div *ngIf="anunciante === true" class="anunciante">
+                <div *ngIf="anunciante == false" class="anunciante">
                     <span >{{house.nome}}</span>
-                    <div class="acoes">
-                        <img src="../../../../assets/icons/excluir.png"/>
-                        <img src="../../../../assets/icons/editar.png" />
+                    <div *ngIf="acoes == true" class="acoes">
+                        <img (click)="clickDelete()" src="../../../../assets/icons/excluir.png"/>
+                        <img (click)="clickEdit()" src="../../../../assets/icons/editar.png" />
                     </div>
                 </div>
             </legend>
@@ -48,8 +48,12 @@
                     <strong>{{house.qtdVagasNaGaragem}}</strong>
                 </div>
             </div>
-    
-            <span class="price">{{formatValue(house.valor)}}</span>
+
+            <div class="price">
+                <span>{{formatValue(house.valor)}}</span>
+                <span *ngIf="visualizar==true" (click)="clickView()">Visualizar</span>
+            </div>
+            
         </div>
     </div>
 </div>

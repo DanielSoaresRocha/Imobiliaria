@@ -138,36 +138,14 @@
           <img style="margin-bottom: 40px;" src="../../../../assets/house.png"/>
       </div>
 
-      <div class="fieldset" *ngFor="let house of houses" (click)="houseDetails(house)">
-        <img src="../../../../assets/casa.png" alt="Casa" />
-
-        <div class="content">
-          <legend>
-            <span>{{house.nome}}</span>
-          </legend>
-        
-          <div class="cards">
-            <div class="card">
-              <img src="../../../../assets/icons/size.png" />
-              <strong>{{house.metrosQuadrados}}²</strong>
-            </div>
-            <div class="card">
-              <img src="../../../../assets/icons/bed.png" />
-              <strong>{{house.qtdQuartos}}</strong>
-            </div>
-            <div class="card">
-              <img src="../../../../assets/icons/bathroom.png" />
-              <strong>{{house.qtdBanheiros}}</strong>
-            </div>
-            <div class="card">
-              <img src="../../../../assets/icons/garage.png" />
-              <strong>{{house.qtdVagasNaGaragem}}</strong>
-            </div>
-          </div>
-        
-          <span class="price">R$ {{house.valor}}</span>
+      <div class="list">
+            <ng-container *ngFor="let house of houses">
+                <app-card-house 
+                    [house]="house"
+                    [visualizar]="true"
+                    (view)="houseDetails(house)"></app-card-house>
+            </ng-container>
         </div>
-      </div>
     </section>
   </main>
 </div>

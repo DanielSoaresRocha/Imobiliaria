@@ -2,12 +2,30 @@
     <div class="card">
         <app-progress-house [stage]="stage"></app-progress-house>
 
-        <app-about [house]="house" *ngIf="stage==1" (stageEmit)="changeStage($event)"></app-about>
+        <app-about
+            [house]="house"
+            *ngIf="stage==1"
+            (stageEmit)="changeStage($event)"
+            [edit]="edit"
+            >
+        </app-about>
         
-        <app-price [house]="house" *ngIf="stage==2" (stageEmit)="changeStage($event)"></app-price>
+        <app-price
+            [house]="house"
+            *ngIf="stage==2"
+            (stageEmit)="changeStage($event)">
+        </app-price>
 
-        <app-photos *ngIf="stage==3" (stageEmit)="changeStage($event)"></app-photos>
+        <app-photos
+            *ngIf="stage==3"
+            (stageEmit)="changeStage($event)">
+        </app-photos>
 
-        <app-finish [house]="house" *ngIf="stage==4" (stageEmit)="changeStage($event)" (finishEmit)="finish()"></app-finish>
+        <app-finish
+            [house]="house"
+            *ngIf="stage==4"
+            (stageEmit)="changeStage($event)" 
+            (finishEmit)="finish()">
+        </app-finish>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { House } from 'src/app/shared/models/house.model';
 import {HouseService} from 'src/app/shared/services'
 
@@ -11,11 +11,30 @@ import {HouseService} from 'src/app/shared/services'
 export class RegisterHouseComponent implements OnInit {
   stage = 1;
   house: House;
+  edit = false;
+  param: string;
 
-  constructor(private houseService: HouseService, private router: Router) { }
+  constructor(private houseService: HouseService, private router: Router,
+    private activatedRoute: ActivatedRoute) {
+    this.param = this.activatedRoute.snapshot.paramMap.get('id');
+    
+    if(this.param != "-1")
+      this.editHouse();
+    else
+      this.house = new House();
+  }
 
   ngOnInit(): void {
-    this.house = new House();
+  }
+
+  editHouse(){
+    this.houseService.findById(this.param).subscribe(
+        response => {
+           this.house = response;
+           this.edit = true;
+        },
+        error => alert('Ocorreu um erro ao tentar retornar esta casa')
+    )
   }
 
   changeStage(numStage) {

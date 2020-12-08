@@ -10,7 +10,7 @@ const routes: Routes = [
         component: NavbarAdvertiserComponent,
         children: [
             {
-                path: "register-house",
+                path: "register-house/:id",
                 component: RegisterHouseComponent
             },
             {

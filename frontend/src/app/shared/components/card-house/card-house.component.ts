@@ -13,12 +13,19 @@ export class CardHouseComponent implements OnInit {
 
   @Input() house: House;
   @Input() anunciante: boolean = false;
+  @Input() visualizar: boolean = false;
+  @Input() acoes: boolean = false;
+
   @Output() change = new EventEmitter();
+  @Output() delete = new EventEmitter();
+  @Output() view = new EventEmitter();
+  @Output() edit = new EventEmitter();
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.createTitleForm();
+    console.log(this.anunciante)
   }
 
   formatValue(value: number): string{
@@ -53,6 +60,18 @@ export class CardHouseComponent implements OnInit {
       name: this.nome.value,
       disabled: this.nome.invalid
     })
+  }
+
+  clickDelete(){
+    this.delete.emit();
+  }
+
+  clickView(){
+    this.view.emit();
+  }
+
+  clickEdit(){
+    this.edit.emit();
   }
 
   get nome(){

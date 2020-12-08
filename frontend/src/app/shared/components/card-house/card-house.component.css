@@ -13,7 +13,6 @@
 
 .containerCardHouse .fieldset > img {
   width: 16.3rem;
-  height: 11.8rem;
 }
 
 .containerCardHouse .fieldset .content legend .anunciante > span {
@@ -82,12 +81,23 @@
 }
 
 .containerCardHouse .fieldset .content .price {
-  position: absolute;
-  bottom: 0.6rem;
   font-family: Archivo;
   font-style: normal;
   font-weight: bold;
   font-size: 2.25rem;
   line-height: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.price span:nth-child(1) {
   color: #1f703f;
+}
+
+.price span:nth-child(2) {
+  color: #0075ff;
+  font-size: 20px;
+  margin-right: 25px;
+  cursor: pointer;
 }
