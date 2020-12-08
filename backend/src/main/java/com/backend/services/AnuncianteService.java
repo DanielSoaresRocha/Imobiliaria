@@ -78,7 +78,6 @@ public class AnuncianteService {
 
     public Anunciante findByEmail(String email) {
 
-
         Anunciante obj = anuncianteRepository.findByEmail(email);
         if (obj == null) {
             throw new ObjectNotFoundException(
@@ -127,17 +126,15 @@ public class AnuncianteService {
 
     }
     public String buscarAnucienteLogado() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String email;
 
-        String nome;
-
-        if (principal instanceof UserDetails) {
-            nome = ((UserDetails) principal).getUsername();
+        if (obj instanceof UserDetails) {
+            email = ((UserDetails) obj).getUsername();
         } else {
-            nome = principal.toString();
+            email = obj.toString();
         }
-        return nome;
-
+        return email;
     }
 
 }
