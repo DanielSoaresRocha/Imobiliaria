@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { House } from 'src/app/shared/models/house.model';
 import {HouseService} from 'src/app/shared/services'
 
@@ -11,8 +12,14 @@ import {HouseService} from 'src/app/shared/services'
 export class RegisterHouseComponent implements OnInit {
   stage = 1;
   house: House;
-  edit = false;
   param: string;
+  edit: boolean = false;
+
+  private state = new BehaviorSubject({
+      house: new House()
+  });
+
+  public obs$ = this.state.asObservable();
 
   constructor(private houseService: HouseService, private router: Router,
     private activatedRoute: ActivatedRoute) {
@@ -28,10 +35,13 @@ export class RegisterHouseComponent implements OnInit {
   }
 
   editHouse(){
+    this.edit = true;
     this.houseService.findById(this.param).subscribe(
         response => {
            this.house = response;
-           this.edit = true;
+           let update = this.state.value;
+           update.house = this.house;
+           this.state.next(update);
         },
         error => alert('Ocorreu um erro ao tentar retornar esta casa')
     )

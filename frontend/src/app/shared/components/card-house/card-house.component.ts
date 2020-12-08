@@ -21,11 +21,18 @@ export class CardHouseComponent implements OnInit {
   @Output() view = new EventEmitter();
   @Output() edit = new EventEmitter();
 
+  @Input() observer;
+  @Input() editing = false;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.createTitleForm();
-    console.log(this.anunciante)
+    if(this.editing){
+      this.observer.subscribe(val => {
+        this.fillName(val);
+      })
+    }
   }
 
   formatValue(value: number): string{
@@ -53,6 +60,10 @@ export class CardHouseComponent implements OnInit {
     }else{
       this.house.nome = this.nome.value;
     }
+  }
+
+  fillName({house}){
+    this.nome.setValue(house.nome);
   }
 
   changeName(){

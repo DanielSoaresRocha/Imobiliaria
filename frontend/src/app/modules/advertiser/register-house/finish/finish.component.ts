@@ -10,6 +10,8 @@ export class FinishComponent implements OnInit {
   @Output() stageEmit = new EventEmitter();
   @Output() finishEmit = new EventEmitter();
   @Input() house: House;
+  @Input() edit: boolean;
+  @Input() observer;
   disableButton = true;
   
   constructor(private router: Router) { }

@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AboutComponent implements OnInit {
   @Output() stageEmit = new EventEmitter();
   @Input() house: House;
+  @Input() observer;
   @Input() edit: boolean;
 
   constructor(private router: Router, private cepService: CepService, private fb: FormBuilder) { }
@@ -20,25 +21,27 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.createAboutForm();
-    if(this.edit)
-      this.fillHouse();
+    
+    if(this.edit){
+      this.observer.subscribe(val => {
+        this.fillHouse(val);
+      })
+    }
   }
 
-  fillHouse(){
-    console.log("Esta editando")
-    console.log(this.house)
-    this.cep.setValue(this.house.cep);
-    this.estado.setValue(this.house.estado);
-    this.cidade.setValue(this.house.cidade);
-    this.bairro.setValue(this.house.bairro);
-    this.rua.setValue(this.house.logradouro)
-    this.numero.setValue(this.house.numero)
-    this.complemento.setValue(this.house.complemento)
-    this.metrosQuadrados.setValue(this.house.metrosQuadrados);
-    this.qtdQuartos.setValue(this.house.qtdQuartos);
-    this.qtdBanheiros.setValue(this.house.qtdBanheiros);
-    this.qtdVagasNaGaragem.setValue(this.house.qtdVagasNaGaragem);
-    this.descricao.setValue(this.house.descricao);
+  fillHouse({house}){
+    this.cep.setValue(house.cep);
+    this.estado.setValue(house.estado);
+    this.cidade.setValue(house.cidade);
+    this.bairro.setValue(house.bairro);
+    this.rua.setValue(house.logradouro)
+    this.numero.setValue(house.numero)
+    this.complemento.setValue(house.complemento)
+    this.metrosQuadrados.setValue(house.metrosQuadrados);
+    this.qtdQuartos.setValue(house.qtdQuartos);
+    this.qtdBanheiros.setValue(house.qtdBanheiros);
+    this.qtdVagasNaGaragem.setValue(house.qtdVagasNaGaragem);
+    this.descricao.setValue(house.descricao);
   }
 
   goToPrice() {

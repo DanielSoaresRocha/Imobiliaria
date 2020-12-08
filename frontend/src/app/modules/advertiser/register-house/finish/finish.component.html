@@ -88,11 +88,13 @@
 <h1 style="margin-top: 40px;">Preview do anúncio</h1>
 
 <div style="margin-top: 60px; display: flex; justify-content: center;">
-    <app-card-house 
+    <app-card-house
+        [editing]="edit"
+        [observer]="observer"
         [house]="house"
         (change)="changeName($event)"
         [anunciante]="true"
-        ></app-card-house>
+    ></app-card-house>
 </div>
 
 <div class="group-buttons">

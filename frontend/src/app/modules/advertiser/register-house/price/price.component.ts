@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { House } from 'src/app/shared/models/house.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-price',
@@ -17,11 +18,34 @@ export class PriceComponent implements OnInit {
 
   @Output() stageEmit = new EventEmitter();
   @Input() house: House;
+  @Input() observer;
+  @Input() edit: boolean;
   
   constructor(private router: Router, private fb: FormBuilder ) { }
 
   ngOnInit(): void {
     this.createPriceForm();
+    
+    if(this.edit){
+      this.observer.subscribe(val => {
+        this.fillHouse(val);
+      })
+    }
+  }
+
+  fillHouse({house}){
+    this.valor.setValue(house.valor)
+    if(house.valorIptu != 0){
+      this.checkIPTU = true;
+      this.iptu.setValue(house.valorIptu);
+    }
+
+    if(house.valorCondominio != 0){
+      this.checkCondominio = true;
+      this.condominio.setValue(house.valorIptu);
+    }
+
+    this.isVenda = house.isVenda;
   }
 
   changeCondominio(){
@@ -29,7 +53,7 @@ export class PriceComponent implements OnInit {
   }
 
   changeIPTU(){
-    this.checkIPTU = !this.checkIPTU
+    this.checkIPTU = !this.checkIPTU;
   }
 
   goToPhotos(){

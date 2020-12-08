@@ -6,11 +6,14 @@
             [house]="house"
             *ngIf="stage==1"
             (stageEmit)="changeStage($event)"
+            [observer]="obs$"
             [edit]="edit"
             >
         </app-about>
         
         <app-price
+            [edit]="edit"
+            [observer]="obs$"
             [house]="house"
             *ngIf="stage==2"
             (stageEmit)="changeStage($event)">
@@ -22,6 +25,8 @@
         </app-photos>
 
         <app-finish
+            [observer]="obs$"
+            [edit]="edit"
             [house]="house"
             *ngIf="stage==4"
             (stageEmit)="changeStage($event)" 

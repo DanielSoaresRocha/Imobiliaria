@@ -29,8 +29,8 @@
 
         <div style="margin-top: 40px; display: flex;">
             <div style="min-width: 250px;">
-                <div (click)="changeCondominio()">
-                    <mat-checkbox name="condominio" >Têm condominio</mat-checkbox>
+                <div >
+                    <mat-checkbox [checked]="checkCondominio" (change)="changeCondominio()" name="condominio" >Têm condominio</mat-checkbox>
                 </div>
                 
                 <div style="margin-top: 20px;" *ngIf="checkCondominio">
@@ -48,8 +48,8 @@
                 </div>
             </div>
             <div style="min-width: 250px;">
-                <div (click)="changeIPTU()">
-                    <mat-checkbox name="IPTU">Têm IPTU</mat-checkbox>
+                <div>
+                    <mat-checkbox [checked]="checkIPTU" (change)="changeIPTU()" name="IPTU">Têm IPTU</mat-checkbox>
                 </div>
 
                 <div style="margin-top: 20px;" *ngIf="checkIPTU">
