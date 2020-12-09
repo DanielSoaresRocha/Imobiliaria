@@ -39,7 +39,7 @@ export class AdvertsComponent implements OnInit {
   }
 
   listHouses(){
-    this.houseService.listByAdvertiser("2").subscribe(
+    this.houseService.listByAdvertiser(localStorage.getItem('userId')).subscribe(
       reponse => this.houses = reponse,
       error => alert('Ocorreu um erro')
     )

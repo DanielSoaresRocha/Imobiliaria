@@ -43,7 +43,7 @@
                             name="Valor condominio"
                             required
                             formControlName="condominio">
-                            <mat-error *ngIF=" checkCondominio.true && condominio.invalid">{{errorMessageCondominio()}}</mat-error>
+                            <mat-error *ngIf="checkCondominio && condominio.invalid">{{errorMessageCondominio()}}</mat-error>
                         <span matPrefix>R$&nbsp;</span>
                         <span matSuffix>.00</span>
                     </mat-form-field>
@@ -64,7 +64,7 @@
                             name="Valor IPTU"
                             required
                             formControlName="iptu">
-                            <mat-error *ngIF=" checkIPTU.true && iptu.invalid">{{errorMessageIPTU()}}</mat-error>
+                            <mat-error *ngIf="checkIPTU && iptu.invalid">{{errorMessageIPTU()}}</mat-error>
                         <span matPrefix>R$&nbsp;</span>
                         <span matSuffix>.00</span>
                     </mat-form-field>

@@ -53,13 +53,27 @@ export class RegisterHouseComponent implements OnInit {
   }
 
   finish(){
-    this.houseService.create(this.house).subscribe(
-      response => this.router.navigate(['/advertiser/index']),
-      err => {
-        console.log(err);
-        alert('Não foi possível cadastrar');
-      }
-    )
+
+    if(this.edit){
+      this.houseService.update(this.house).subscribe(
+        response => {
+          alert("Esta casa foi atualizada com sucesso!");
+          this.router.navigate(['/advertiser/index']);
+        },
+        err => {
+          console.log(err);
+          alert('Não foi possível cadastrar');
+        }
+      )
+    }else{
+      this.houseService.create(this.house).subscribe(
+        response => this.router.navigate(['/advertiser/index']),
+        err => {
+          console.log(err);
+          alert('Não foi possível cadastrar');
+        }
+      )
+    }
   }
 
 }

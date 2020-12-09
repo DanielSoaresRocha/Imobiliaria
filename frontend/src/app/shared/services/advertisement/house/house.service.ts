@@ -57,6 +57,12 @@ export class HouseService {
     return this.httpClient.delete(`${this.BASE_URL}/${id}`, {
       headers: headers
     })
-    //http://localhost:8080/produtos/{id}
+  }
+
+  update(house: House):Observable<any>{
+    let headers = new HttpHeaders()
+      .append('Authorization', localStorage.getItem('token'))
+      
+    return this.httpClient.put(`${this.BASE_URL}/${house.id}`, house)
   }
 }

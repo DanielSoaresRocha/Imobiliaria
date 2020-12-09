@@ -99,5 +99,8 @@
 
 <div class="group-buttons">
     <button (click)="back()">voltar</button>
-    <button (click)="finish()" [disabled]="disableButton" >Finalizar</button>
+    <button (click)="finish()" [disabled]="disableButton">
+        <span *ngIf="!edit">Finalizar</span>
+        <span *ngIf="edit">Salvar</span>
+    </button>
 </div>
