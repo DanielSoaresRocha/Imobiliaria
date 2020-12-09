@@ -77,7 +77,7 @@ public class ProdutoResource {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping
+    @PutMapping(value="/{id}")
     public ResponseEntity<Void> update(@RequestBody Residencia obj) {
         service.update(obj);
         return ResponseEntity.noContent().build();
