@@ -70,7 +70,8 @@ public class ProdutoService {
     }
 
     public Residencia update(Residencia obj) {
-        findProdutoById(obj.getId());
+        Produto residencia = findProdutoById(obj.getId());
+        obj.setAnunciante(residencia.getAnunciante());
         return repo.save(obj);
     }
 
