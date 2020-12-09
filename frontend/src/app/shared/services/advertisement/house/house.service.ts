@@ -63,6 +63,8 @@ export class HouseService {
     let headers = new HttpHeaders()
       .append('Authorization', localStorage.getItem('token'))
       
-    return this.httpClient.put(`${this.BASE_URL}/${house.id}`, house)
+    return this.httpClient.put(`${this.BASE_URL}`, house, {
+      headers: headers
+    })
   }
 }
