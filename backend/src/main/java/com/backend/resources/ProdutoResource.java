@@ -70,4 +70,18 @@ public class ProdutoResource {
         List<Produto> list = service.findProdutoByAnunciante(id);
         return ResponseEntity.ok().body(list);
     }
+
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        service.deleteProdutoByAnunciante(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value="/{id}")
+    public ResponseEntity<Void> update(@RequestBody Residencia obj, @PathVariable Integer id) {
+        obj.setId(id);
+        service.update(obj);
+        return ResponseEntity.noContent().build();
+    }
+
 }
