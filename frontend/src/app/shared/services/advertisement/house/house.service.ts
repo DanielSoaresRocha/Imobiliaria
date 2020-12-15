@@ -3,13 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { House } from '../../../models/house.model'
 import { HouseFilter } from '../../../models/house-filter.model'
+import { environment as env} from '../../../../../environments/environment'
 
 @Injectable({
   providedIn: 'root',
 })
 export class HouseService {
   
-  private readonly BASE_URL = 'http://localhost:8080/produtos';
+  private readonly BASE_URL = env.baseUrl +'produtos';
 
   constructor(private httpClient: HttpClient) {}
 
