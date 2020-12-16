@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://apirest-pa2.herokuapp.com/',
+  baseUrl: 'http://localhost:8080/',
 };
 
 /*

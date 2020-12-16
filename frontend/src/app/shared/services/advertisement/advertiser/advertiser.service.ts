@@ -19,12 +19,12 @@ export class AdvertiserService {
       senha: password,
     }
 
-    return this.httpClient.post(`${this.BASE_URL}/login`, body, {
+    return this.httpClient.post(`${this.BASE_URL}login`, body, {
       observe: 'response'
     });
   }
 
   register(advertiser: Advertiser): Observable<any>{
-    return this.httpClient.post(`${this.BASE_URL}/anunciantes`, advertiser);
+    return this.httpClient.post(`${this.BASE_URL}anunciantes`, advertiser);
   }
 }
