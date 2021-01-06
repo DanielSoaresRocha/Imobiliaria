@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/screenshots/house.png" width="200px" float="center"/>
+  <img src="/screenshots/house.png" width="100px" float="center"/>
 </p>
 
 <h1 align="center">Imobiliária</h1>
@@ -23,7 +23,7 @@ Disponível [aqui](https://imobiliaria.vercel.app/welcome)
 
 <div align="center">
   <br>
-    <img src="screenshots/bem_vindo.png" alt="Screenshot1" width="100%">
+    <img src="screenshots/bemvindo.png" alt="Bem-vindo" width="100%">
   <br>
 </div>
 
